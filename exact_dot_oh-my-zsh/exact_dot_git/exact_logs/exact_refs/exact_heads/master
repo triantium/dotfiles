@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 db3d05fe7184a523fe4aba120bea962114424573 Manuel Müller <triantium@mailbox.org> 1595316819 +0200	clone: from https://github.com/ohmyzsh/ohmyzsh.git
+db3d05fe7184a523fe4aba120bea962114424573 f6bc949c05fd18ee557a89c92f82ff556200707d Manuel Müller <manuel.mueller@geekinbusiness.de> 1596438487 +0200	rebase finished: refs/heads/master onto f6bc949c05fd18ee557a89c92f82ff556200707d
+f6bc949c05fd18ee557a89c92f82ff556200707d 079e7bb5e0a79171f3356d55d3f6302a82645a39 Manuel Müller <manuel.mueller@geekinbusiness.de> 1597568409 +0200	rebase finished: refs/heads/master onto 079e7bb5e0a79171f3356d55d3f6302a82645a39
