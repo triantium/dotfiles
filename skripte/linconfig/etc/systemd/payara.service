@@ -1,0 +1,19 @@
+[Unit]
+Description=Payara Server
+After=network.target remote-fs.target
+
+[Service]
+User=payara
+WorkingDirectory=/opt/payara41/glassfish
+Environment=PATH=/bin:/usr/bin:/opt/oracle_java/bin
+Type=forking
+RemainAfterExit=yes
+ExecStart=/opt/payara41/glassfish/bin/asadmin start-domain payaradomain
+ExecReload=/opt/payara41/glassfish/bin/asadmin restart-domain payaradomain
+ExecStop=/opt/payara41/glassfish/bin/asadmin stop-domain payaradomain
+TimeoutStartSec=600
+TimeoutStopSec=30
+
+[Install]
+WantedBy = multi-user.target
+

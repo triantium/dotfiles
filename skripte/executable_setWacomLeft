@@ -1,0 +1,10 @@
+#!/bin/bash
+#https://github.com/linuxwacom/xf86-input-wacom/wiki/Dual-and-Multi-Monitor-Set-Up
+
+xinput list
+
+DEVICE=$(xinput list --name-only | grep stylus | head -n 1)
+
+xinput list-props "$DEVICE"
+
+xinput set-prop "$DEVICE" --type=float "Coordinate Transformation Matrix" 0.5 0 0 0 1 0 0 0 1
