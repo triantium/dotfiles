@@ -1,0 +1,31 @@
+[user]
+	name = Manuel Müller
+	email = manuel.mueller@geekinbusiness.de
+	signingKey = ***REMOVED***
+[color]
+	ui = auto
+[core]
+	quotepath = false
+	excludesfile = /home/triantium/.gitignore
+[commit]
+	gpgSign = true
+[tag]
+	forceSignAnnotated = false
+[gpg]
+	program = /bin/gpg
+[alias]
+  graph = log --graph --pretty=short --abbrev-commit --date relative
+  graphdate = log --graph --pretty=short --abbrev-commit
+  daily = log --since '1 day ago' --oneline
+  weekly = log --since '1 week ago' --oneline
+  pushnotes = push origin refs/notes/*:refs/notes/*
+[filesystem "Oracle Corporation|13|/dev/sda3"]
+	timestampResolution = 14000 nanoseconds
+	minRacyThreshold = 6844 microseconds
+[filesystem "Oracle Corporation|11.0.7|/dev/mapper/data-root"]
+	timestampResolution = 8000 nanoseconds
+	minRacyThreshold = 4500 microseconds
+[cola]
+	spellcheck = false
+[push]
+	default = current
