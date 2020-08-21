@@ -196,7 +196,7 @@ exec "i3wsr --icons awesome"
 #exec --no-startup-id "compton -b"
 #exec feh --bg-fill Bilder/monolith_by_jjcanvas-d9879g7.jpg
 exec nitrogen --restore
-
+exec setxkbmap -layout us -variant intl
 
 # Now send blocks with information forever:
 #exec conky #-c $HOME/.config/conky/conky.conf
