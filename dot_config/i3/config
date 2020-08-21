@@ -30,7 +30,7 @@ font pango:Ubuntu Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec mate-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -186,16 +186,16 @@ hide_edge_borders both
 
 
 #autostarts
-exec mate-power-manager
-exec mate-volume-control-status-icon
-exec owncloud
+#exec mate-power-manager
+#exec mate-volume-control-status-icon
+#exec owncloud
 exec nm-applet
-exec mate-settings-daemon --replace
-exec das-keyboard-q
+#exec mate-settings-daemon --replace
+#exec das-keyboard-q
 exec "i3wsr --icons awesome"
 #exec --no-startup-id "compton -b"
 #exec feh --bg-fill Bilder/monolith_by_jjcanvas-d9879g7.jpg
 
 
 # Now send blocks with information forever:
-exec conky #-c $HOME/.config/conky/conky.conf
+#exec conky #-c $HOME/.config/conky/conky.conf
