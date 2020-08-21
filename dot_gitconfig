@@ -1,7 +1,7 @@
 [user]
 	name = Manuel Müller
 	email = manuel.mueller@geekinbusiness.de
-	signingKey = ***REMOVED***
+# signingKey = ***REMOVED***
 [color]
 	ui = auto
 [core]
