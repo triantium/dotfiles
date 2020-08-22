@@ -22,8 +22,9 @@ filetype indent plugin on
 
 " Enable syntax highlighting
 syntax on
-
-colorscheme elflord
+packadd! dracula
+syntax enable
+colorscheme dracula
 
 "------------------------------------------------------------
 " Must have options {{{1
