@@ -199,6 +199,7 @@ hide_edge_borders both
 #autostarts
 #exec mate-power-manager
 exec --no-startup-id volumeicon
+exec --no-startup-id redshift-gtk
 #exec owncloud
 exec --no-startup-id  nm-applet
 #exec  --no-startup-id unity-settings-daemon 
