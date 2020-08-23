@@ -1,0 +1,103 @@
+ForwardAgent yes
+AddKeysToAgent yes
+#ForwardX11 yes
+Host git.ionicjs.com
+    IdentityFile {{ .home -}}/.ssh/id_rsa
+Host geek
+  HostName geekinbusiness.de
+  Port 22
+  User u206317
+  LocalForward 10443 localhost:443
+  LocalForward 15432 localhost:5432
+  LocalForward 15433 localhost:5433
+  LocalForward 14848 localhost:4848
+  LocalForward 14849 localhost:4849
+  LocalForward 18080 localhost:8080
+Host heimdall
+  HostName heimdall.fritz.box
+  User pi
+  port 22
+  LocalForward 9080 localhost:8080
+  LocalForward 9085 localhost:85
+  LocalForward 9086 localhost:8086
+  LocalForward 9083 localhost:8083
+  LocalForward 9432 localhost:5432
+Host dellingr
+  HostName dellingr
+  User pi
+  port 22
+Host balder
+  HostName balder
+  User pi
+  port 22
+Host freya
+  HostName freya.fritz.box
+  User pi
+  port 22
+  LocalForward 8385 localhost:8384
+Host home
+  HostName triantium.ddns.net
+  User pi
+  port 2220
+  LocalForward 9080 localhost:8080
+  LocalForward 9085 localhost:85
+  LocalForward 9086 localhost:8086
+  LocalForward 9083 localhost:8083
+  LocalForward 9432 localhost:5432
+  LocalForward 9022 localhost:22
+  LocalForward 9088 fritz.box:80
+Host siller
+  HostName siller-digital.de
+  Port 22
+  User root
+  LocalForward 4306 localhost:3306
+  LocalForward 3000 localhost:3000
+Host fath-mechatronics
+  HostName 212.125.116.89
+  Port 22
+  User root
+Host fath-integration
+  HostName 10.1.12.25
+  Port 22
+  User DEV
+  LocalForward 55432 localhost:5432
+  LocalForward 54848 localhost:4848
+  LocalForward 58080 localhost:9080
+  LocalForward 8889 localhost:8888
+  LocalForward 3000 de01sv-padb04.fath.de:3000
+  LocalForward 3001 de01sv-padb04.fath.de:3001
+  LocalForward 3002 de01sv-padb04.fath.de:3002
+  LocalForward 3003 de01sv-padb04.fath.de:3003
+  LocalForward 3004 de01sv-padb04.fath.de:3004
+  LocalForward 3005 de01sv-padb04.fath.de:3005
+  LocalForward 12010 de01sv-padb04.fath.de:12010
+  LocalForward 9090 10.1.12.25:9090
+  LocalForward 59009 localhost:9009
+  LocalForward 7777 10.1.12.25:7777
+Host fath-production
+  HostName 10.1.12.30
+  Port 22
+  User admin
+  LocalForward 55433 localhost:5432
+  LocalForward 54849 localhost:4848
+  LocalForward 58080 localhost:9080
+  LocalForward 58686 localhost:8686
+  LocalForward 58687 localhost:8687
+Host fath-kanbanboard
+  HostName 10.1.12.32
+  Port 22
+  User admin
+  LocalForward 55454 localhost:5432
+  LocalForward 54849 localhost:4848
+  LocalForward 58080 localhost:9080
+  LocalForward 59009 localhost:9009
+Host fath-staging
+  HostName 10.1.12.31
+  Port 22
+  User admin
+  LocalForward 55431 localhost:5432
+  LocalForward 54847 localhost:4848
+Host karslhuid.de
+  HostName 195.201.242.34
+  Port 22
+  User root

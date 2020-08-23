@@ -1,0 +1,10 @@
+[icons]
+Firefox = "🌍"
+"Org.gnome.Nautilus" = "📘"
+
+[general]
+separator = "|"
+
+[options]
+#no_names = true
+remove_duplicates = true
