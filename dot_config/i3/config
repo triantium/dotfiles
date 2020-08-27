@@ -177,6 +177,21 @@ bindsym XF86AudioMute "exec --no-startup-id pactl set-sink-mute `pacmd stat | aw
 
 bindsym $mod+Shift+p exec i3lock -c 000000
 
+# Audio Control Bindings on Das Keyboard Q
+# get keys with `sudo showkey`, lookup symbol with xmodmap -pk or -pke
+#
+
+# Pause/Play Toogle 
+
+# bindcode 164 "exec --no-startup-id playerctl --all-players play-pause"
+bindsym XF86AudioPlay "exec --no-startup-id playerctl --all-players play-pause"
+#bindsym XF86AudioPause "exec --no-startup-id playerctl --all-players pause"
+
+# Play Next Track
+
+# bindcode 163 "exec --no-startup-id playerctl --all-players next"
+bindsym XF86AudioNext "exec --no-startup-id playerctl --all-players next"
+
 # # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-start xbacklight -inc 10% # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10% # decrease screen brightness
