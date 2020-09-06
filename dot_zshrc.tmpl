@@ -105,3 +105,5 @@ export SDKMAN_DIR="{{ .chezmoi.homedir }}/.sdkman"
 [[ -s "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh"
 
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
+
+pfetch

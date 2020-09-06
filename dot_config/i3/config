@@ -173,6 +173,8 @@ bindsym XF86AudioRaiseVolume "exec --no-startup-id pactl set-sink-volume `pacmd 
 bindsym XF86AudioLowerVolume "exec --no-startup-id pactl set-sink-volume `pacmd stat | awk -F\": \" '    /^Default sink name: /{print $2}'` -5%" #decrease sound volume
 bindsym XF86AudioMute "exec --no-startup-id pactl set-sink-mute `pacmd stat | awk -F\": \" '    /^Default sink name: /{print $2}'` toggle" # mute sound
 
+bindsym Print "exec flameshot gui"
+
 #binding for lockscreen
 
 bindsym $mod+Shift+p exec i3lock -c 000000
