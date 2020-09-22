@@ -243,3 +243,10 @@ client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
+
+
+# Handle weird edgecases mostly games that expect to be in Controll
+#
+for_window [class="Bound by Flame"] floating enable
+for_window [class="Bound by Flame"] fullscreen enable
+
