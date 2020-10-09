@@ -228,6 +228,7 @@ exec "i3wsr --icons awesome --config ~/.config/i3wsr/i3wsr.toml"
 #exec feh --bg-fill Bilder/monolith_by_jjcanvas-d9879g7.jpg
 exec nitrogen --restore
 exec setxkbmap -layout us -variant altgr-intl
+exec autorandr -c
 
 # Now send blocks with information forever:
 #exec conky #-c $HOME/.config/conky/conky.conf

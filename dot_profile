@@ -46,3 +46,11 @@ export RESTIC_FILES="/home/manu/.config/restic/files"
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
 # alias cmus='tmux new-session -A -D -s cmus "$(which cmus)"'
 alias ng="yarn run ng"
+
+alias whipper="docker run -ti --rm --device=/dev/cdrom \
+    --mount type=bind,source=${HOME}/.config/whipper,target=/home/worker/.config/whipper \
+    --mount type=bind,source=${HOME}/whipper,target=/whipper \
+    --mount type=bind,source=${HOME}/output,target=/output \
+    whipperteam/whipper"
+
+
