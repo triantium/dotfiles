@@ -1,14 +1,15 @@
 [user]
 	name = Manuel Müller
-	email = manuel.mueller@geekinbusiness.de
+	email = {{ .email }}
 # signingKey = ***REMOVED***
 [color]
 	ui = auto
 [core]
 	quotepath = false
-	excludesfile = /home/triantium/.gitignore
+	excludesfile = {{ .home }}/.gitignore
 [commit]
-	gpgSign = true
+        gpgSign = false 
+  #.gitGpgSign
 [tag]
 	forceSignAnnotated = false
 [gpg]

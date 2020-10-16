@@ -227,7 +227,7 @@ exec "i3wsr --icons awesome --config ~/.config/i3wsr/i3wsr.toml"
 #exec --no-startup-id "compton -b"
 #exec feh --bg-fill Bilder/monolith_by_jjcanvas-d9879g7.jpg
 exec nitrogen --restore
-exec setxkbmap -layout us -variant altgr-intl
+exec setxkbmap -layout {{ .keyboardlayout  }} {{if ne .keyboardvariant "" }} -variant {{ .keyboardvariant }}{{ end }}
 exec autorandr -c
 
 # Now send blocks with information forever:
