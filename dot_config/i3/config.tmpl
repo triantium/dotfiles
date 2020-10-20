@@ -229,6 +229,7 @@ exec "i3wsr --icons awesome --config ~/.config/i3wsr/i3wsr.toml"
 exec nitrogen --restore
 exec setxkbmap -layout {{ .keyboardlayout  }} {{if ne .keyboardvariant "" }} -variant {{ .keyboardvariant }}{{ end }}
 exec autorandr -c
+exec gnome-pie
 
 # Now send blocks with information forever:
 #exec conky #-c $HOME/.config/conky/conky.conf
