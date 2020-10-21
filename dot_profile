@@ -41,7 +41,8 @@ export EDITOR=vim
 export RESTIC_REPOSITORY="rest:https://triantium:***REMOVED***@triantium.ddns.net/restic/"
 # export RESTIC_PASSWORD_FILE="/home/manu/.config/restic/password"
 export RESTIC_PASSWORD_COMMAND="pass backup/restic"
-export RESTIC_FILES="/home/manu/.config/restic/files"
+export RESTIC_FILES="/home/triantium/.config/restic/files"
+export UNCRUSTIFY_CONFIG="/home/triantium/.config/uncrustify/.uncrustify"
 
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
 # alias cmus='tmux new-session -A -D -s cmus "$(which cmus)"'
@@ -52,5 +53,7 @@ alias whipper="docker run -ti --rm --device=/dev/cdrom \
     --mount type=bind,source=${HOME}/whipper,target=/whipper \
     --mount type=bind,source=${HOME}/output,target=/output \
     whipperteam/whipper"
+
+
 
 
