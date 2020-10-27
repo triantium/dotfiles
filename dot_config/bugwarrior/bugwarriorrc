@@ -5,8 +5,8 @@
 # Here you define a comma separated list of targets.  Each of them must have a
 # section below determining their properties, how to query them, etc.  The name
 # is just a symbol, and doesn't have any functional importance.
-targets = gitea, 
-# my_github,siller_github
+targets = gitea 
+# ,my_github,siller_github
 
 # If unspecified, the default taskwarrior config will be used.
 #taskrc = /path/to/.taskrc
