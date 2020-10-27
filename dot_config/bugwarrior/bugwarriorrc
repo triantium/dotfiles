@@ -5,7 +5,7 @@
 # Here you define a comma separated list of targets.  Each of them must have a
 # section below determining their properties, how to query them, etc.  The name
 # is just a symbol, and doesn't have any functional importance.
-targets = my_github
+targets = my_github,siller_github
 
 # If unspecified, the default taskwarrior config will be used.
 #taskrc = /path/to/.taskrc
@@ -89,7 +89,14 @@ github.username = SillerMobile
 # Working with a large number of projects, instead of excluding most of them I
 # can also simply include just a limited set.
 # github.include_repos = project_foo,project_foz
-github.involved_issues = True
+# github.involved_issues = True
+# github.filter_pull_requests = True
+
+
+github.include_user_issues = False
+github.include_user_repos = False
+
+github.query= is:open assignee:triantium 
 
 # Note that login and username can be different:  I can login as me, but
 # scrape issues from an organization's repos.
