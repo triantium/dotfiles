@@ -125,3 +125,4 @@ gitea.login=manuel.mueller.geekadmin
 gitea.token=***REMOVED***
 gitea.add_tags=geek
 gitea.default_priority=M
+gitea.host="https://git.geekinbusiness.de"
