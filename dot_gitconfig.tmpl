@@ -23,10 +23,13 @@
 [filesystem "Oracle Corporation|13|/dev/sda3"]
 	timestampResolution = 14000 nanoseconds
 	minRacyThreshold = 6844 microseconds
-[filesystem "Oracle Corporation|11.0.7|/dev/mapper/data-root"]
-	timestampResolution = 8000 nanoseconds
-	minRacyThreshold = 4500 microseconds
 [cola]
-	spellcheck = false
+ 	spellcheck = false
 [push]
-	default = current
+ 	default = current
+{{if (eq .chezmoi.hostname "vakyrie")}}  
+[filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
+  timestampResolution = 20000 nanoseconds
+  minRacyThreshold = 6681 microseconds
+{{end}}
+
