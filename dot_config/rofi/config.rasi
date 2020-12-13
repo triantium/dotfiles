@@ -1,4 +1,8 @@
-/*Dracula theme based on the Purple official rofi theme*/
+configuration{
+  show-icons: true;
+}
+
+*Dracula theme based on the Purple official rofi theme*/
 
 * {
     font: "Jetbrains Mono 12";
