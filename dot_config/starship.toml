@@ -1,0 +1,7 @@
+[kubernetes]
+disabled = false
+
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
