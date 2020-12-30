@@ -25,7 +25,7 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
     filemanager = "defx"
-#   bootstrap_after="cargo_task"
+   bootstrap_after="cargo_task"
 
 # Enable autocomplete layer
 [[layers]]
