@@ -195,8 +195,8 @@ bindsym XF86AudioPlay "exec --no-startup-id playerctl --all-players play-pause"
 bindsym XF86AudioNext "exec --no-startup-id playerctl --all-players next"
 
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-start xbacklight -inc 10% # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10% # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-start brightnessctl set +10% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%- # decrease screen brightness
 #
 # # Touchpad controls
 #pbindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
