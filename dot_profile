@@ -56,4 +56,4 @@ alias whipper="docker run -ti --rm --device=/dev/cdrom \
 
 
 
-
+alias imgcat="kitty +kitten icat"
