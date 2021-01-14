@@ -114,5 +114,11 @@ eval "$(starship init zsh)"
 #compinit
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
+# Workaround for ssh and kitten
+if [[ $TERM = "xterm-kitty" ]] ; then
+  alias ssh="kitty +kitten ssh"
+fi
+
 
 pfetch
+
