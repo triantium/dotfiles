@@ -54,6 +54,8 @@ alias whipper="docker run -ti --rm --device=/dev/cdrom \
     --mount type=bind,source=${HOME}/output,target=/output \
     whipperteam/whipper"
 
-
-
 alias imgcat="kitty +kitten icat"
+if [[ $TERM = "xterm-kitty" ]] ; then
+  alias ssh="kitty +kitten ssh"
+fi
+
