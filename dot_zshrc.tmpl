@@ -100,6 +100,12 @@ source $ZSH/oh-my-zsh.sh
 #
 #eval `{{- .home -}}/.dir_colors/dircolors`
 
+alias whipper="docker run -ti --rm --device=/dev/cdrom \
+    --mount type=bind,source=${HOME}/.config/whipper,target=/home/worker/.config/whipper \
+    --mount type=bind,source=${HOME}/whipper,target=/whipper \
+    --mount type=bind,source=${HOME}/output,target=/output \
+    whipperteam/whipper"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="{{ .chezmoi.homedir }}/.sdkman"
 [[ -s "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh"
