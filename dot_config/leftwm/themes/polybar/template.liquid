@@ -7,6 +7,10 @@
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
 %{F#000000}%{B#E60053}  {{tag.name}}  %{B-}%{F-}
 %{A}
+{% elsif tag.busy  %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{F#000000}%{B#D33682}  {{tag.name}}  %{B-}%{F-}
+%{A}
 {% else tag.visible  %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
 %{F#FFFFFF}  {{tag.name}}  %{F-}
