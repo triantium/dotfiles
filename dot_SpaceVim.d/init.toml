@@ -27,6 +27,11 @@
     filemanager = "defx"
    bootstrap_after="cargo_task"
 
+# Enable Colorscheme Layer
+[[layers]]
+  name = "colorscheme"
+
+
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
