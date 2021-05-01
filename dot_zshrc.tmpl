@@ -105,6 +105,10 @@ fi
 #
 #eval `{{- .home -}}/.dir_colors/dircolors`
 
+alias cpuavail='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_available_governors'
+alias cpushow='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias cpuhigh='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+
 alias whipper="docker run -ti --rm --device=/dev/cdrom \
     --mount type=bind,source=${HOME}/.config/whipper,target=/home/worker/.config/whipper \
     --mount type=bind,source=${HOME}/whipper,target=/whipper \
@@ -135,4 +139,5 @@ if [[ -c restic ]] ; then
 fi
 
 pfetch
+
 
