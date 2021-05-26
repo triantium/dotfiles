@@ -121,6 +121,12 @@ export SDKMAN_DIR="{{ .chezmoi.homedir }}/.sdkman"
 
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
 
+# Kubertnetes alias and functions
+
+ns () {
+  kubectl config set-context --current --namespace=$1
+
+}
 
 eval "$(starship init zsh)"
 
