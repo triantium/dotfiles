@@ -30,7 +30,7 @@ fi
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
-if [ -d "$HOME/istio-1.10.0"] ; then
+if [ -d "$HOME/istio-1.10.0" ] ; then
   export PATH="$PATH:$HOME/istio-1.10.0/bin"
 fi
 #y$.local/share/flatpak/exports/bin
