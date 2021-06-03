@@ -1,5 +1,6 @@
 border_width = 1
 margin = 0 
+workspace_margin = 0 
 padding = 0 
 default_border_color = "#222222"
 floating_border_color = "#005500"
