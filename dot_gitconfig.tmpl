@@ -28,6 +28,8 @@
  	spellcheck = false
 [push]
  	default = current
+[pull]
+  rebase = false
 {{if (eq .chezmoi.hostname "vakyrie")}}  
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
   timestampResolution = 20000 nanoseconds
