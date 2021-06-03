@@ -47,11 +47,6 @@ modifier = ["modkey"]
 key = "w"
 
 [[keybind]]
-command = "ToggleFullScreen"
-modifier = ["modkey"]
-key = "f"
-
-[[keybind]]
 command = "MoveWindowUp"
 modifier = ["modkey", "Shift"]
 key = "Up"
