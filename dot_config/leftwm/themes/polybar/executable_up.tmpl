@@ -16,9 +16,9 @@ fi
 
 #boot compton or picom if it exists
 if [ -x "$(command -v compton)" ]; then
-  compton &> /dev/null & 
+  compton &> /dev/null &
 elif [ -x "$(command -v picom)" ]; then
-  picom &> /dev/null & 
+  picom &> /dev/null &
 fi
 
 
@@ -32,13 +32,18 @@ if [ -x "$(command -v nitrogen)" ]; then
   nitrogen --restore
 fi
 
-index=0
-monitor="$(polybar -m | grep +0+0 | sed s/:.*// | tac)"
-leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' | while read -r width x y
-do 
+### SETUP POLYBAR
+#monitor-fallback="$(polybar -m | grep primary | sed 's/:.*//' | tac)"
+leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' | while read -r height width x y index
+do
+  #echo "Searching ${width}x${height}+${x}+${y}"
+  monitor="$(polybar -m | grep ${width}x${height}+${x}+${y} | cut -d ':' -f 1)"
+  #echo "monitor=$monitor offsetx=$x offsety=$y width=$width height=$height index=$index"
+  # TODO change needed with multiple workspaces per monitor
+  x=0
+  y=0
   barname="mainbar$index"
-  monitor=$monitor offsetx=$x offsety=$y width=$width polybar -c $SCRIPTPATH/polybar.config $barname &> /dev/null &
-  let index=index+1
+  monitor=$monitor offsetx=$x offsety=$y width=$width height=$height index=$index polybar -c $SCRIPTPATH/polybar.config $barname  &> /dev/null &
 done
 
 # Setup Applets
