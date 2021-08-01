@@ -26,6 +26,14 @@ secondary = #cb4b16
 alert = #bd2c40
 
 
+[bar/mainbar]
+inherit = bar/barbase
+modules-left = workspace
+[module/workspace]
+type = custom/script
+exec = leftwm-state -w ${env:index} -t $SCRIPTPATH/template.liquid
+tail = true
+
 [bar/mainbar0]
 inherit = bar/barbase
 modules-left = workspace0
@@ -64,6 +72,7 @@ width = ${env:width}
 offset-x = ${env:offsetx}
 offset-y = ${env:offsety}
 monitor = ${env:monitor}
+monitor-strict = false
 ;offset-y = ${env:y}
 ;width = 100%
 height = 27
@@ -81,7 +90,7 @@ module-margin-right = 2
 font-0 = misc fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = wuncon siji:pixelsize=10;1
-modules-center = 
+modules-center =
 modules-right = filesystem xbacklight pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 tray-position = right
 tray-padding = 2
