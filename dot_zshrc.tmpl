@@ -129,6 +129,8 @@ ns () {
 }
 alias k="kubectl"
 
+source <(k3d completion zsh)
+
 eval "$(starship init zsh)"
 
 # Init for Kitty ?!!?
