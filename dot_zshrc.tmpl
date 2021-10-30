@@ -115,6 +115,12 @@ alias whipper="docker run -ti --rm --device=/dev/cdrom \
     --mount type=bind,source=${HOME}/output,target=/output \
     whipperteam/whipper"
 
+# functions
+
+function changeRefreshRate(){
+xrandr --output DP-1 --mode "1920x1080" -r 144.0
+}
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="{{ .chezmoi.homedir }}/.sdkman"
 [[ -s "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh"
