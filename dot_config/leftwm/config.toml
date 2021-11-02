@@ -32,6 +32,12 @@ key = "x"
 
 [[keybind]]
 command = "Execute"
+value = "flameshot gui"
+modifier = ["modkey", "Shift"]
+key = "s"
+
+[[keybind]]
+command = "Execute"
 value = "i3lock -c 000000"
 modifier = ["modkey", "Control"]
 key = "l"
