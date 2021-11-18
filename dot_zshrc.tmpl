@@ -8,7 +8,7 @@ export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="dracula"
+ZSH_THEME="cypher"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -24,10 +24,10 @@ ZSH_THEME="dracula"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -68,7 +68,7 @@ ZSH_THEME="dracula"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git mvn ansible docker docker-compose lein httpie man nmap npm ng yarn pass sdk ubuntu taskwarrior timewarrior bgnotify battery sudo kubectl golang ***REMOVED***) 
+plugins=(git mvn ansible docker docker-compose lein httpie man nmap npm ng yarn pass sdk ubuntu taskwarrior bgnotify battery sudo kubectl golang ***REMOVED***) 
 
 source $ZSH/oh-my-zsh.sh
 

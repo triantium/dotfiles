@@ -10,7 +10,7 @@
     autoPush = true
 
 [data]
-    home = {{- .chezmoi.homeDir | quote -}}
+    home = {{ .chezmoi.homeDir | quote }}
     email = {{ $email | quote }}
     fullname = {{ $fullname | quote }}
     keyboardLayout = {{ $keyboardLayout | quote }}
