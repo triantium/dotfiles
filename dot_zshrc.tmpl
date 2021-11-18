@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="{{ .chezmoi.homedir }}/.oh-my-zsh"
+export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -122,8 +122,8 @@ xrandr --output DP-1 --mode "1920x1080" -r 144.0
 }
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="{{ .chezmoi.homedir }}/.sdkman"
-[[ -s "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ .chezmoi.homedir }}/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="{{ .chezmoi.homeDir }}/.sdkman"
+[[ -s "{{ .chezmoi.homeDir }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ .chezmoi.homeDir }}/.sdkman/bin/sdkman-init.sh"
 
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
 
