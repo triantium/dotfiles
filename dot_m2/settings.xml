@@ -1,0 +1,17 @@
+<settings>
+  <mirrors>
+    <mirror>
+	<id>geekinbusiness-nexus</id>
+	<name>Geek In Business Nexus</name>
+        <url>https://nexus.geekinbusiness.de/repository/maven-public/</url>
+	<mirrorOf>*</mirrorOf>
+      </mirror>
+    </mirrors>
+  <servers>
+    <server>
+      <id>geekinbusiness-nexus</id>
+      <username>manuel.mueller</username>
+      <password>***REMOVED***</password>
+    </server>
+  </servers>
+</settings>
