@@ -1,4 +1,31 @@
 #!/bin/bash
 
-xinput --map-to-output 'SYNAPTICS Synaptics Touch Digitizer V04' DP-0
-xinput --map-to-output 'SYNAPTICS Synaptics Touch Digitizer V04 Mouse' DP-0
+
+displays=$(xrandr | grep connected |grep -v disconnected | awk '{print $1}')
+
+echo "Displays"
+i=0
+for disp in ${displays} ; do 
+  ((i=i+1))
+  echo "  (${i}) ${disp}" 
+  selections[$i]=${disp}
+done
+
+echo "Select display"
+read selected
+
+selected_disp=${selections[selected]}
+# echo "Changing to ${selected}"
+echo "Changing to ${selected_disp}"
+
+
+touchscreens=$(xinput --list| grep -i 'Touch Digitizer'| sed 's/.*id=\([0-9]\+\).*/\1/p')
+
+# echo ${wacoms}
+
+for id in ${touchscreens}; do
+  echo "Setting id=${id} to Display ${selected_disp}"
+  xinput map-to-output ${id} ${selected_disp}
+done
+
+

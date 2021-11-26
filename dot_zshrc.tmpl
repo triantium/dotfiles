@@ -134,6 +134,7 @@ ns () {
 
 }
 alias k="kubectl"
+alias ydl='youtube-dl'
 
 source <(k3d completion zsh)
 
@@ -144,13 +145,17 @@ eval "$(starship init zsh)"
 #compinit
 # Completion for kitty
 
- if [ command -v kitty &> /dev/null ;
-then
-  kitty + complete setup zsh | source /dev/stdin
-  # Workaround for ssh and kitten
-  if [[ $TERM = "xterm-kitty" ]] ; then
-    alias ssh="kitty +kitten ssh"
-  fi
+#if [ command -v kitty &> /dev/null ;
+#then
+#kitty + complete setup zsh | source /dev/stdin
+# # Workaround for ssh and kitten
+# if [[ $TERM = "xterm-kitty" ]] ; then
+#   alias ssh="kitty +kitten ssh"
+# fi
+#fi
+
+if [[ $TERM = "alacritty" ]] ; then
+  alias ssh='TERM=xterm-256color ssh' 
 fi
 
 if [[ -c restic ]] ; then
