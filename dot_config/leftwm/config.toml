@@ -52,10 +52,30 @@ command = "SwapTags"
 modifier = ["modkey"]
 key = "w"
 
+# v >=0.2.8
 [[keybind]]
 command = "ToggleFullScreen"
 modifier = ["modkey"]
 key = "f"
+
+# v >=0.2.8
+[[keybind]]
+command = "ToggleScratchPad"
+value = "Scratchpad" # Name set for the scratchpad
+modifier = ["modkey"]
+key = "p"
+# v >=0.2.8
+
+# Create a scratchpad for alacritty
+[[scratchpad]]
+name = "Scratchpad" # This is the name which is referenced when calling (case-sensitive)
+value = "alacritty" # The command to load the application if it isn't started
+# x, y, width, height are in pixels when an integer is inputted or a percentage when a float is inputted.
+# These values are relative to the size of the workspace, and will be restricted depending on the workspace size.
+x = 20.0
+y = 10.0
+height = 60.0
+width = 60.0
 
 [[keybind]]
 command = "MoveWindowUp"
@@ -210,7 +230,8 @@ value = "9"
 modifier = ["modkey", "Shift"]
 key = "9"
 
-# Link für alle verfügbaren keys https://github.com/leftwm/leftwm/blob/master/src/utils/xkeysym_lookup.rs 
+# Link für alle verfügbaren keys 
+# https://github.com/leftwm/leftwm/blob/master/leftwm-core/src/utils/xkeysym_lookup.rs
 
 # Screenshoots
 
