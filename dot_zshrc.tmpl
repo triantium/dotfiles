@@ -74,6 +74,12 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Setup ***REMOVED***
+if [ -f "$HOME/.***REMOVED***/plugins/java/set-java-home.zsh" ] ; then
+# Setup JAVA_HOME
+. "$HOME/.***REMOVED***/plugins/java/set-java-home.zsh"
+fi
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -118,7 +124,7 @@ alias whipper="docker run -ti --rm --device=/dev/cdrom \
 # functions
 
 function changeRefreshRate(){
-xrandr --output DP-1 --mode "1920x1080" -r 144.0
+  xrandr --output DP-1 --mode "1920x1080" -r 144.0
 }
 
 
@@ -128,7 +134,6 @@ alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(whi
 
 ns () {
   kubectl config set-context --current --namespace=$1
-
 }
 alias k="kubectl"
 alias ydl='youtube-dl'

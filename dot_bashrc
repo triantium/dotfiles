@@ -119,6 +119,7 @@ fi
 # setup ***REMOVED***
 . $HOME/.***REMOVED***/***REMOVED***.sh
 . $HOME/.***REMOVED***/completions/***REMOVED***.bash
+. $HOME/.***REMOVED***/plugins/java/set-java-home.bash
 
 
 eval "$(starship init bash)"
