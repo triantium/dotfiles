@@ -121,9 +121,6 @@ function changeRefreshRate(){
 xrandr --output DP-1 --mode "1920x1080" -r 144.0
 }
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="{{ .chezmoi.homeDir }}/.sdkman"
-[[ -s "{{ .chezmoi.homeDir }}/.sdkman/bin/sdkman-init.sh" ]] && source "{{ .chezmoi.homeDir }}/.sdkman/bin/sdkman-init.sh"
 
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
 
