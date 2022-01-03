@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # Kleines Skript um sich mit dem openvpn Client in das Fath Netzwerk einzuwählen.
 # Voraussetzungen
 #   - pass
@@ -8,21 +10,21 @@
 
 # pass <(echo $user && echo $password)
 
-PASSWORD_STORE_DIR=${HOME}/.geek-password-store
+#PASSWORD_STORE_DIR=${HOME}/.geek-password-store
 
-vpnsecret='customers/fath/vpn'
+vpnsecret='geekinbusiness/customers/fath/vpn'
 
 function init () {
-  pass ${vpnsecret}/GeekInBusiness@217.6.214.250.conf >  "$XDG_CONFIG_HOME/openvpn/GeekInBusiness@Fath"
-  pass ${vpnsecret}/GeekInBusiness@217.6.214.250-ca.pem > "${HOME}/.cert/nm-openvpn/GeekInBusiness@217.6.214.250-ca.pem"
-  pass ${vpnsecret}/GeekInBusiness@217.6.214.250-cert.pem > "${HOME}/.cert/nm-openvpn/GeekInBusiness@217.6.214.250-cert.pem"
-  pass ${vpnsecret}/GeekInBusiness@217.6.214.250-key.pem > "${HOME}/.cert/nm-openvpn/GeekInBusiness@217.6.214.250-key.pem"
+  gopass ${vpnsecret}/GeekInBusiness@217.6.214.250.conf >  "$XDG_CONFIG_HOME/openvpn/GeekInBusiness@Fath"
+  gopass ${vpnsecret}/GeekInBusiness@217.6.214.250-ca.pem > "${HOME}/.cert/nm-openvpn/GeekInBusiness@217.6.214.250-ca.pem"
+  gopass ${vpnsecret}/GeekInBusiness@217.6.214.250-cert.pem > "${HOME}/.cert/nm-openvpn/GeekInBusiness@217.6.214.250-cert.pem"
+  gopass ${vpnsecret}/GeekInBusiness@217.6.214.250-key.pem > "${HOME}/.cert/nm-openvpn/GeekInBusiness@217.6.214.250-key.pem"
 }
 
 
-password=$(pass "${vpnsecret}/password" | head -n 1 | tr -d '\n')
-user=$(pass "${vpnsecret}/password" | grep 'user: ' | sed 's/user: //g' | tr -d '\n')
-password="${password}$(pass otp ${vpnsecret}/password)"
+password=$(gopass -o "${vpnsecret}/password" | head -n 1 | tr -d '\n')
+user=$(gopass "${vpnsecret}/password" | grep 'user: ' | sed 's/user: //g' | tr -d '\n')
+password="${password}$(gopass -o otp ${vpnsecret}/password)"
 
 
 auth=$(mktemp)
