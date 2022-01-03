@@ -8,8 +8,9 @@
 
 # pass <(echo $user && echo $password)
 
+PASSWORD_STORE_DIR=${HOME}/.geek-password-store
 
-vpnsecret='geek/customers/fath/vpn'
+vpnsecret='customers/fath/vpn'
 
 function init () {
   pass ${vpnsecret}/GeekInBusiness@217.6.214.250.conf >  "$XDG_CONFIG_HOME/openvpn/GeekInBusiness@Fath"
