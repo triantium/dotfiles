@@ -17,4 +17,5 @@ pkill das-keyboard-w
 pkill volumeicon
 pkill polybar
 pkill redshift-gtk
+pkill wired
 
