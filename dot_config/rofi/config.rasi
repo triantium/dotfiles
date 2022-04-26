@@ -2,6 +2,7 @@ configuration{
   show-icons: true;
 }
 
+@theme "solarized"
 /*Dracula theme based on the Purple official rofi theme*/
 
 * {
