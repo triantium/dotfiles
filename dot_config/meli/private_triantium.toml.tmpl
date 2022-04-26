@@ -1,0 +1,17 @@
+[accounts."triantium"]
+root_mailbox = "INBOX"
+format = "imap"
+server_hostname="imap.mailbox.org"
+server_password="{{pass "accounts/mailbox.org"}}"
+server_username="triantium@mailbox.org"
+server_port="993" # imaps
+#server_port="143" # STARTTLS
+#use_starttls=true #optional
+#index_style = "Conversations"
+identity = "triantium@mailbox.org"
+display_name = "Müller Manuel"
+### match every mailbox:
+#subscribed_mailboxes = ["*" ]
+### match specific mailboxes:
+##subscribed_mailboxes = ["INBOX", "INBOX/Sent", "INBOX/Drafts", "INBOX/Junk"]
+

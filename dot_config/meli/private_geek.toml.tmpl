@@ -1,0 +1,17 @@
+[accounts."geek"]
+root_mailbox = "INBOX"
+format = "imap"
+server_hostname="imap.geekinbusiness.de"
+server_password="{{ pass "accounts/mail.geekinbusiness.de" }}"
+server_username="manuel.mueller.geekadmin"
+server_port="993" # imaps
+#server_port="143" # STARTTLS
+#use_starttls=true #optional
+#index_style = "Conversations"
+identity = "manuel.mueller@geekinbusiness.de"
+display_name = "Müller Manuel"
+### match every mailbox:
+#subscribed_mailboxes = ["*" ]
+### match specific mailboxes:
+##subscribed_mailboxes = ["INBOX", "INBOX/Sent", "INBOX/Drafts", "INBOX/Junk"]
+

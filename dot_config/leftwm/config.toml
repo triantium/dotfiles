@@ -10,6 +10,12 @@ key = "d"
 
 [[keybind]]
 command = "Execute"
+value = "rofi -show window"
+modifier = ["modkey"]
+key = "s"
+
+[[keybind]]
+command = "Execute"
 value = "x-terminal-emulator"
 modifier = ["modkey"]
 key = "Return"
