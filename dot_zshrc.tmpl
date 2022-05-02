@@ -156,7 +156,7 @@ eval "$(starship init zsh)"
 #fi
  
 if [[ -c kubectl ]] ; then
-  . <(kubectl completion zsh)
+   . <( kubectl completion zsh ) ;
 fi
 
 if [[ -c flux ]] ; then
