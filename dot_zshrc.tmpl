@@ -154,6 +154,22 @@ eval "$(starship init zsh)"
 #   alias ssh="kitty +kitten ssh"
 # fi
 #fi
+ 
+if [[ -c kubectl ]] ; then
+   . <( kubectl completion zsh ) ;
+fi
+
+if [[ -c flux ]] ; then
+  . <(flux completion zsh)
+fi
+
+if [[ -c kustomize ]] ; then
+  . <(kustomize completion zsh)
+fi
+
+if [[ -c istioctl ]] ; then
+  . <(istioctl completion zsh)
+fi
 
 if [[ $TERM = "alacritty" ]] ; then
   alias ssh='TERM=xterm-256color ssh' 
