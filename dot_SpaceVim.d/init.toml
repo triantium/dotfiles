@@ -44,30 +44,12 @@ default_position = 'top'
 default_height = 30
 
 [[layers]]
- name = "lang#java"
+ name = "chat"
+ gitter_token = ""
 
 [[layers]]
-  name = "lsp"
-  filetypes = [
-    "java"
-  ]
-  [layers.override_cmd]
-    java = [
-    "java",
-    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-    "-Dosgi.bundles.defaultStartLevel=4",
-    "-Declipse.product=org.eclipse.jdt.ls.core.product",
-    "-Dlog.protocol=true",
-    "-Dlog.level=NONE",
-    "-noverify",
-    "-Xmx2G",
-    "-jar",
-    "~/Anwendungen/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar",
-    "-configuration",
-    "~/.config/dt-language-server-latest/config_linux",
-    "-data",
-    "~/.cache/javalsp"
-    ]
+ name = "lang#java"
+
 
 [[layers]]
   name = "lang#c"

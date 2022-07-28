@@ -40,7 +40,11 @@ if [ -d "$HOME/.local/share/flatpak/exports/bin" ] ; then
     PATH="$HOME/.local/share/flatpak/exports/bin:$PATH"
 fi
 
-export EDITOR=vim
+if [[ -c 'nvim' ]] ; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+fi
 export RESTIC_REPOSITORY="rest:https://triantium:***REMOVED***@triantium.ddns.net/restic/"
 # export RESTIC_PASSWORD_FILE="/home/manu/.config/restic/password"
 export RESTIC_PASSWORD_COMMAND="pass backup/restic"

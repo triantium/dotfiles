@@ -37,6 +37,10 @@ if [ -x "$(command -v wired)" ]; then
   wired -r &
 fi
 
+if [ -x "$(command -v syncthing)" ]; then
+  systemctl start syncthing --user
+fi
+
 ### SETUP POLYBAR
 #monitor-fallback="$(polybar -m | grep primary | sed 's/:.*//' | tac)"
 leftwm-state -q -n -t $SCRIPTPATH/sizes.liquid | sed -r '/^\s*$/d' | while read -r height width x y index
