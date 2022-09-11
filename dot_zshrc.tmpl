@@ -89,7 +89,7 @@ fi
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 if [[ -c bat ]] ; then
@@ -157,6 +157,9 @@ eval "$(starship init zsh)"
  
 if [[ -c kubectl ]] ; then
    . <( kubectl completion zsh ) ;
+fi
+if [[ -c chectl ]] ; then
+   . <( chectl autocomplete:script zsh ) ;
 fi
 
 if [[ -c flux ]] ; then
