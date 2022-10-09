@@ -64,7 +64,7 @@ else
 fi
 export RESTIC_REPOSITORY="{{(passFields "backup/restic").repository}}"
 # export RESTIC_PASSWORD_FILE="{{joinPath .chezmoi.homeDir ".config/restic/password"}}"
-export RESTIC_PASSWORD_COMMAND="pass backup/restic | head -n 1 | tr -d '\n'"
+export RESTIC_PASSWORD_COMMAND='bash -c "pass backup/restic | head -n 1 | tr -d '\n' "'
 export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
 export UNCRUSTIFY_CONFIG="{{joinPath .chezmoi.homeDir ".config/uncrustify/.uncrustify"}}"
 export LANG=en_US.UTF-8
