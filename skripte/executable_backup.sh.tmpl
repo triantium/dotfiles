@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export RESTIC_REPOSITORY="{{(passFields "backup/restic").repository}}"
+export RESTIC_PASSWORD_FILE="{{joinPath .chezmoi.homeDir ".config/restic/password"}}"
+# export RESTIC_PASSWORD_COMMAND="pass backup/restic | head -n 1 | tr -d '\n'"
+export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
+
+rm backup.log
+
+restic backup --files-from="${RESTIC_FILES}" |& tee backup.log
+
+EXIT_CODE=$?
+
+echo  "${EXIT_CODE}"
+if [ "${EXIT_CODE}" == "0" ] ; then
+  echo all clear;
+  SUBJECT="Backup {{.chezmoi.hostname}}"
+else
+  echo fuck;
+  SUBJECT="Error Backup {{.chezmoi.hostname}}"
+fi
+
+cat backup.log | mutt -s "${SUBJECT}" triantium@mailbox.org
+
+

@@ -1,0 +1,15 @@
+projects:
+  stores:
+    path: .
+
+  geek:
+    url: git@git.geekinbusiness.de:GeekInBusiness/password-store.git
+
+  personal:
+    url: git@git.geekinbusiness.de:manuel.mueller.geekadmin/password.git
+
+  root:
+
+tasks:
+  git-fetch:
+    cmd: git fetch

@@ -16,12 +16,6 @@ ZSH_THEME="cypher"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
@@ -29,48 +23,78 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git mvn ansible docker docker-compose lein httpie man nmap npm ng yarn pass sdk ubuntu taskwarrior bgnotify battery sudo golang ***REMOVED***) 
+
+plugins=(bgnotify)
+
+{{ if lookPath "git" }}
+plugins+=(git)
+{{end}}
+{{ if lookPath "mvn" }}
+plugins+=(mvn)
+{{end}}
+{{ if lookPath "ansible" }}
+plugins+=(ansible)
+{{end}}
+{{ if lookPath "docker" }}
+plugins+=(docker)
+{{end}}
+{{ if lookPath "docker-compose" }}
+plugins+=(docker-compose)
+{{end}}
+{{ if lookPath "lein" }}
+plugins+=(lein)
+{{end}}
+{{ if lookPath "http" }}
+plugins+=(httpie)
+{{end}}
+{{ if lookPath "man" }}
+plugins+=(man)
+{{end}}
+{{ if lookPath "nmap" }}
+plugins+=(nmap)
+{{end}}
+{{ if lookPath "npm" }}
+plugins+=(npm)
+{{end}}
+{{ if lookPath "yarn" }}
+plugins+=(yarn)
+{{end}}
+{{ if lookPath "pass" }}
+plugins+=(pass)
+{{end}}
+{{ if lookPath "sdk" }}
+plugins+=(sdk)
+{{end}}
+{{ if lookPath "task" }}
+plugins+=(taskwarrior)
+{{end}}
+{{ if lookPath "sudo" }}
+plugins+=(sudo)
+{{end}}
+{{ if lookPath "go" }}
+plugins+=(golang)
+{{end}}
+{{ if lookPath "***REMOVED***" }}
+plugins+=(***REMOVED***)
+{{end}}
+
 
 source $ZSH/oh-my-zsh.sh
+if [ -f "{{joinPath .chezmoi.homeDir ".aliases"}}" ]; then
+    source "{{joinPath .chezmoi.homeDir ".aliase"}}"
+fi
 
 # User configuration
 
@@ -82,8 +106,6 @@ fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -91,6 +113,7 @@ fi
 # else
 #   export EDITOR='nvim'
 # fi
+
 
 if [[ -c bat ]] ; then
   # set bat as manpage reader
@@ -111,77 +134,73 @@ fi
 #
 #eval `{{- .home -}}/.dir_colors/dircolors`
 
-alias cpuavail='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_available_governors'
-alias cpushow='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-alias cpuhigh='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-
-#alias whipper="docker run -ti --rm --device=/dev/cdrom \
-#    --mount type=bind,source=${HOME}/.config/whipper,target=/home/worker/.config/whipper \
-#    --mount type=bind,source=${HOME}/whipper,target=/whipper \
-#    --mount type=bind,source=${HOME}/output,target=/output \
-#    whipperteam/whipper"
-
-# functions
-
-function changeRefreshRate(){
-  xrandr --output DP-1 --mode "1920x1080" -r 144.0
-}
-
-
-alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
-
 # Kubertnetes alias and functions
-
-ns () {
-  kubectl config set-context --current --namespace=$1
-}
-alias k="kubectl"
-alias ydl='youtube-dl'
-
-
-eval "$(starship init zsh)"
-
-# Init for Kitty ?!!?
-#autoload -Uz compinit
-#compinit
-# Completion for kitty
-
-#if [ command -v kitty &> /dev/null ;
-#then
-#kitty + complete setup zsh | source /dev/stdin
-# # Workaround for ssh and kitten
-# if [[ $TERM = "xterm-kitty" ]] ; then
-#   alias ssh="kitty +kitten ssh"
-# fi
-#fi
- 
+{{ if lookPath "kubectl" }}
 if [[ -c kubectl ]] ; then
    . <( kubectl completion zsh ) ;
 fi
+{{end}}
+
+
+{{ if lookPath "starship" }}
+    eval "$(starship init zsh)"
+{{end}}
+
+
+{{ if lookPath "kitty" }}
+if [ command -v kitty &> /dev/null ; then
+  kitty + complete setup zsh | source /dev/stdin
+
+    # Workaround for ssh and kitten
+    if [[ $TERM = "xterm-kitty" ]] ; then
+        alias ssh="kitty +kitten ssh"
+    fi
+fi
+{{end}}
+
+{{ if lookPath "chectl" }}
 if [[ -c chectl ]] ; then
    . <( chectl autocomplete:script zsh ) ;
 fi
+{{end}}
 
+{{ if lookPath "rustup" }}
+if [[ -c rustup ]] ; then
+   . <( rustup completions zsh ) ;
+fi
+{{end}}
+
+{{ if lookPath "flux" }}
 if [[ -c flux ]] ; then
   . <(flux completion zsh)
 fi
+{{end}}
 
+{{ if lookPath "kustomize" }}
 if [[ -c kustomize ]] ; then
   . <(kustomize completion zsh)
 fi
+{{end}}
 
+{{ if lookPath "istioctl" }}
 if [[ -c istioctl ]] ; then
   . <(istioctl completion zsh)
 fi
+{{end}}
+
 
 if [[ $TERM = "alacritty" ]] ; then
-  alias ssh='TERM=xterm-256color ssh' 
+  alias ssh='TERM=xterm-256color ssh'
 fi
 
+{{ if lookPath "restic" }}
 if [[ -c restic ]] ; then
   source $(restic generate --zsh-completion /dev/stdout)
 fi
+{{end}}
 
-#pfetch
+{{ if lookPath "pfetch" }}
+pfetch
+{{end}}
 
 

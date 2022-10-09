@@ -1,0 +1,12 @@
+autoclip: false
+autoimport: true
+cliptimeout: 45
+exportkeys: true
+nopager: false
+notifications: true
+parsing: true
+path: {{ joinPath .chezmoi.homeDir ".local/share/gopass/stores/root"}}
+safecontent: false
+mounts:
+    geek: {{ joinPath .chezmoi.homeDir ".local/share/gopass/stores/geek"}}
+    personal: {{ joinPath .chezmoi.homeDir ".local/share/gopass/stores/personal"}}

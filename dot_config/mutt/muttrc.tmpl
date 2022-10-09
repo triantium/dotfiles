@@ -1,0 +1,17 @@
+# general
+set editor=vim
+
+# imap
+set my_name = "Manuel Müller"
+set imap_user={{ (passFields "accounts/mailbox.org").email }}
+set imap_pass={{ pass "accounts/mailbox.org" }}
+set folder=imaps://{{ (passFields "accounts/mailbox.org" ).imap }}
+set spoolfile   = +INBOX
+mailboxes       = +INBOX
+
+# smtp
+set smtp_pass = $imap_pass
+set smtp_url=smtps://$imap_user@{{(passFields "accounts/mailbox.org").smtp}}
+set from = {{.chezmoi.hostname}}@triantium.de
+set use_from = yes
+set ssl_force_tls = yes

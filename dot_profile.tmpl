@@ -62,26 +62,12 @@ if [[ -c 'nvim' ]] ; then
 else
   export EDITOR=vim
 fi
-export RESTIC_REPOSITORY="rest:https://triantium:***REMOVED***@triantium.ddns.net/restic/"
+export RESTIC_REPOSITORY="{{(passFields "backup/restic").repository}}"
 # export RESTIC_PASSWORD_FILE="{{joinPath .chezmoi.homeDir ".config/restic/password"}}"
-export RESTIC_PASSWORD_COMMAND="pass backup/restic"
+export RESTIC_PASSWORD_COMMAND="pass backup/restic | head -n 1 | tr -d '\n'"
 export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
 export UNCRUSTIFY_CONFIG="{{joinPath .chezmoi.homeDir ".config/uncrustify/.uncrustify"}}"
-
-alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
-# alias cmus='tmux new-session -A -D -s cmus "$(which cmus)"'
-alias ng="yarn run ng"
-
-alias whipper="docker run -ti --rm --device=/dev/cdrom \
-    --mount type=bind,source={{joinPath .chezmoi.homeDir ".config/whipper"}},target=/home/worker/.config/whipper \
-    --mount type=bind,source={{joinPath .chezmoi.homeDir "/whipper" }},target=/whipper \
-    --mount type=bind,source={{joinPath .chezmoi.homeDir "/output"}},target=/output \
-    whipperteam/whipper"
-
-alias imgcat="kitty +kitten icat"
-if [[ $TERM = "xterm-kitty" ]] ; then
-  alias ssh="kitty +kitten ssh"
-fi
+export LANG=en_US.UTF-8
 
 if [ -d "{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}" ] ; then
   export PATH="{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}"
