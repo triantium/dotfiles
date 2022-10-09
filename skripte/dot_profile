@@ -2,6 +2,6 @@ export OPENROUTE_APIKEY=***REMOVED***
 export EDITOR=vim
 export RESTIC_REPOSITORY="rest:https://triantium:***REMOVED***@triantium.ddns.net/restic/"
 # export RESTIC_PASSWORD_FILE="/home/manu/.config/restic/password"
-export RESTIC_PASSWORD_COMMAND="pass backup/restic"
+export RESTIC_PASSWORD_COMMAND='bash -c "pass backup/restic | head -n 1 | tr -d '\n' "'
 export RESTIC_FILES="/home/triantium/.config/restic/files"
 
