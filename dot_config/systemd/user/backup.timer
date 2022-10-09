@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup at least every Day
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=1d
+
+[Install]
+WantedBy=timers.target

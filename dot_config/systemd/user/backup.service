@@ -1,0 +1,11 @@
+[Unit]
+Description=Back me Up
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/skripte/
+ExecStart=%h/skripte/backup.sh
+
+[Install]
+WantedBy=default.target
