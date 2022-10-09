@@ -153,7 +153,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    # font pango: Font Awesome 5 Free 
+    # font pango: Font Awesome 5 Free
     status_command i3status
 #        tray_output primary
     colors {
@@ -183,7 +183,7 @@ bindsym $mod+Shift+p exec i3lock -c 000000
 # get keys with `sudo showkey`, lookup symbol with xmodmap -pk or -pke
 #
 
-# Pause/Play Toogle 
+# Pause/Play Toogle
 
 # bindcode 164 "exec --no-startup-id playerctl --all-players play-pause"
 bindsym XF86AudioPlay "exec --no-startup-id playerctl --all-players play-pause"
@@ -220,14 +220,14 @@ exec --no-startup-id volumeicon
 #exec --no-startup-id redshift-gtk
 #exec owncloud
 exec --no-startup-id  nm-applet
-#exec  --no-startup-id unity-settings-daemon 
+#exec  --no-startup-id unity-settings-daemon
 #exec mate-settings-daemon --replace
 #exec das-keyboard-q
 exec "i3wsr --icons awesome --config ~/.config/i3wsr/i3wsr.toml"
 #exec --no-startup-id "compton -b"
 #exec feh --bg-fill Bilder/monolith_by_jjcanvas-d9879g7.jpg
 exec nitrogen --restore
-exec setxkbmap -layout {{ .keyboardlayout  }} {{if ne .keyboardvariant "" }} -variant {{ .keyboardvariant }}{{ end }}
+exec setxkbmap -layout {{ .keyboardLayout  }} {{if ne .keyboardVariant "" }} -variant {{ .keyboardVariant }}{{ end }}
 exec autorandr -c
 
 # Now send blocks with information forever:

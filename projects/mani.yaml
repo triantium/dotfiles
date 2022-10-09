@@ -1,0 +1,78 @@
+projects:
+  #projects:
+  #  path: .
+
+  ansible-karlshuid:
+    path: geek/ansible-karlshuid
+    url: git@git.geekinbusiness.de:GeekInBusiness/ansible-karlshuid.git
+
+  liquibase-sessionlock:
+    path: geek/liquibase-sessionlock
+    url: git@github.com:triantium/liquibase-sessionlock.git
+
+  paperless-ngx:
+    url: git@github.com:paperless-ngx/paperless-ngx.git
+
+  Burnatory:
+    path: personal/Burnatory
+    url: git@github.com:triantium/burnatory.git
+
+  JEE-Examples:
+    path: personal/JEE-Examples
+    url: git@github.com:triantium/JEE-Examples.git
+
+  akhq:
+    path: personal/akhq
+    url: git@github.com:tchiotludo/akhq.git
+
+  banglebreeze:
+    path: personal/banglebreeze
+    url: git@github.com:triantium/banglebreeze.git
+
+  briar:
+    path: personal/briar
+    url: https://code.briarproject.org/briar/briar.git
+
+  chasterbot:
+    path: personal/chasterbot
+    url: git@github.com:triantium/chasterbot.git
+
+  che-setup:
+    path: personal/che-setup
+    url: git@github.com:triantium/che-setup.git
+
+  cloudland2022:
+    path: personal/cloudland2022
+    url: git@github.com:triantium/cloudland2022.git
+
+  cluster:
+    path: personal/cluster
+    url: git@git.geekinbusiness.de:GeekInBusiness/cluster.git
+
+  developeransible:
+    path: personal/developeransible
+    url: git@github.com:triantium/developeransible.git
+
+  gitea:
+    path: personal/gitea
+    url: git@github.com:go-gitea/gitea.git
+
+  h2database:
+    path: personal/h2database
+    url: git@github.com:triantium/h2database.git
+
+  renovate-bot:
+    path: personal/renovate-bot
+    url: git@git.geekinbusiness.de:manuel.mueller.geekadmin/renovate-bot.git
+
+  rust-playground:
+    path: personal/rust-playground
+    url: git@github.com:triantium/rust-playground.git
+
+  sandkasten:
+    path: personal/sandkasten
+
+tasks:
+  git-fetch:
+    desc: Guess
+    cmd: git-fetch

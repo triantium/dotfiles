@@ -9,10 +9,12 @@ if [ -f "/tmp/leftwm-theme-down" ]; then
 fi
 ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 
+{{ if lookPath "autorandr" }}
 if [ -x "$(command -v autorandr)" ]; then
 #autorandr -c
   sleep 1
 fi
+{{end}}
 
 #boot compton or picom if it exists
 if [ -x "$(command -v compton)" ]; then
@@ -27,19 +29,32 @@ fi
 echo "LoadTheme $SCRIPTPATH/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
 
 
+{{ if lookPath "nitrogen" }}
 #set background
 if [ -x "$(command -v nitrogen)" ]; then
   nitrogen --restore
 fi
+{{end}}
 
+{{ if lookPath "ssh-agent" }}
+#start ssh-agent
+if [ -x "$(command -v ssh-agent)" ]; then
+  ssh-agent
+fi
+{{ end }}
+
+{{ if lookPath "wired" }}
 #setup notifications
 if [ -x "$(command -v wired)" ]; then
   wired -r &
 fi
+{{end}}
 
+{{if lookPath "syncthing" }}
 if [ -x "$(command -v syncthing)" ]; then
   systemctl start syncthing --user
 fi
+{{end}}
 
 ### SETUP POLYBAR
 #monitor-fallback="$(polybar -m | grep primary | sed 's/:.*//' | tac)"
@@ -60,5 +75,5 @@ done
 volumeicon
 nm-applet
 # das-keyboard-q
-setxkbmap -layout {{ .keyboardlayout }} -variant {{ .keyboardvariant }}
+setxkbmap -layout {{ .keyboardLayout }} -variant {{ .keyboardVariant }}
 
