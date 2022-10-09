@@ -39,7 +39,7 @@ fi
 {{ if lookPath "ssh-agent" }}
 #start ssh-agent
 if [ -x "$(command -v ssh-agent)" ]; then
-  ssh-agent
+  eval `ssh-agent -s`
 fi
 {{ end }}
 
