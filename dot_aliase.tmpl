@@ -40,3 +40,7 @@ alias k="kubectl"
 alias ydl='youtube-dl'
 {{end}}
 
+{{if lookPath "docker"}}
+alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) docker rmi $(docker images -q)' 
+{{end}}
+

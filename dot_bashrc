@@ -111,3 +111,9 @@ fi
 
 eval "$(starship init bash)"
 
+{{ if lookPath "terraform" }}
+if [[ -c terraform ]] ; then
+  complete -C /usr/bin/terraform terraform
+fi
+{{end}}
+
