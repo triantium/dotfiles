@@ -117,3 +117,8 @@ if [[ -c terraform ]] ; then
 fi
 {{end}}
 
+{{ if lookPath "switcher" }}
+if [[ -c switcher ]] ; then
+  source /usr/local/bin/switch.sh
+fi
+{{end}}
