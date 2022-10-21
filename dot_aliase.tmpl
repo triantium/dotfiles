@@ -24,6 +24,7 @@ alias imgcat="kitty +kitten icat"
 if [[ $TERM = "xterm-kitty" ]] ; then
   alias ssh="kitty +kitten ssh"
 fi
+alias kssh="kitty +kitten ssh"
 
 function changeRefreshRate(){
   xrandr --output DP-1 --mode "1920x1080" -r 144.0
@@ -41,6 +42,6 @@ alias ydl='youtube-dl'
 {{end}}
 
 {{if lookPath "docker"}}
-alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) docker rmi $(docker images -q)' 
+alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) docker rmi $(docker images -q)'
 {{end}}
 
