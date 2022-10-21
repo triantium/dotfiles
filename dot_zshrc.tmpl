@@ -92,11 +92,13 @@ plugins+=(***REMOVED***)
 
 
 source $ZSH/oh-my-zsh.sh
-if [ -f "{{joinPath .chezmoi.homeDir ".aliases"}}" ]; then
+
+# Setup Aliase
+if [ -f "{{joinPath .chezmoi.homeDir ".aliase"}}" ]; then
     source "{{joinPath .chezmoi.homeDir ".aliase"}}"
 fi
 
-# User configuration
+
 
 # Setup ***REMOVED***
 if [ -f "$HOME/.***REMOVED***/plugins/java/set-java-home.zsh" ] ; then
@@ -184,7 +186,7 @@ fi
 {{end}}
 
 {{ if lookPath "switcher" }}
-if [[ -c switcher ]] ; then
+if [[ -f /usr/local/bin/switch.sh ]] ; then
   source /usr/local/bin/switch.sh
 fi
 {{end}}
@@ -206,10 +208,6 @@ if [[ -c pack ]] ; then
    . $( pack completion --shell zsh ) ;
 fi
 {{end}}
-
-if [[ $TERM = "alacritty" ]] ; then
-  alias ssh='TERM=xterm-256color ssh'
-fi
 
 {{ if lookPath "restic" }}
 if [[ -c restic ]] ; then
