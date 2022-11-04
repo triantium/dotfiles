@@ -1,7 +1,6 @@
 [user]
 	name = Manuel Müller
 	email = {{ .email }}
-# signingKey = ***REMOVED***
 [color]
 	ui = auto
 [core]
@@ -9,7 +8,6 @@
 	excludesfile = {{ .home }}/.gitignore
 [commit]
         gpgSign = false
-  #.gitGpgSign
 [tag]
 	forceSignAnnotated = false
 [gpg]
@@ -17,22 +15,27 @@
 [alias]
   graph = log --graph --pretty=short --abbrev-commit --date relative
   graphdate = log --graph --pretty=short --abbrev-commit
-  daily = log --since '1 day ago' --oneline
-  weekly = log --since '1 week ago' --oneline
+  daily = log --author='{{ .email }}' --since '1 day ago' --oneline
+  bidaily = log --author='{{ .email }}' --since '36 hours ago' --oneline
+  weekly = log --author='{{ .email }}' --since '1 week ago' --oneline
   pushnotes = push origin refs/notes/*:refs/notes/*
   project-summary = !which onefetch && onefetch
-[filesystem "Oracle Corporation|13|/dev/sda3"]
-	timestampResolution = 14000 nanoseconds
-	minRacyThreshold = 6844 microseconds
+
 [cola]
  	spellcheck = false
 [push]
- 	default = current
+	default = current
 [pull]
   rebase = false
+  
 {{if (eq .chezmoi.hostname "valkyrie")}}
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
   timestampResolution = 20000 nanoseconds
   minRacyThreshold = 6681 microseconds
 {{end}}
 
+[filesystem "Oracle Corporation|13|/dev/sda3"]
+	timestampResolution = 14000 nanoseconds
+	minRacyThreshold = 6844 microseconds
+{{if (eq .chezmoi.hostname "valkyrie")}}
+{{end}}
