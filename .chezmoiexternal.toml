@@ -7,3 +7,8 @@
     type = "git-repo"
     url = "git@github.com:SpaceVim/SpaceVim.git"
     refreshPeriod = "168h"
+
+[".config/textmate/tiltfile.tmbundle"]
+    type = "git-repo"
+    url = "git@github.com:tilt-dev/tiltfile.tmbundle"
+    refreshPeriod = "168h"
