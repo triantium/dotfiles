@@ -3,3 +3,5 @@ golang latest
 java zulu-javafx-17.30.15
 gradle 7.4
 maven 3.8.3
+k3d 5.4.4
+tilt 0.30.11
