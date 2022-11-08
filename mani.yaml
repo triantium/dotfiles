@@ -1,0 +1,37 @@
+projects:
+  triantium:
+    path: .
+   
+  chezmoi:
+    path: .local/share/chezmoi
+    url: git@github.com:triantium/dotfiles.git
+  
+  geek:
+    path: .local/share/gopass/stores/geek
+    url: git@git.geekinbusiness.de:GeekInBusiness/password-store.git
+  
+  personal:
+    path: .local/share/gopass/stores/personal
+    url: git@git.geekinbusiness.de:manuel.mueller.geekadmin/password.git
+  
+  root:
+    path: .local/share/gopass/stores/root
+
+  personal-cluster:
+    path: projects/personal/cluster-setup
+    url:
+
+  dev-ansible:
+    path: projects/personal/dev-setup
+    url:
+
+  geek-ansible:
+      path: projects/geekinbusiness/ansible-setup
+      url:
+
+
+
+tasks:
+  hello:
+    desc: Print Hello World
+    cmd: echo "Hello World"
