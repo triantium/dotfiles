@@ -14,11 +14,16 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+
+{{ if lookPath "whipper" }}
+{{else}}
 alias whipper="docker run -ti --rm --device=/dev/cdrom \
     --mount type=bind,source={{joinPath .chezmoi.homeDir ".config/whipper"}},target=/home/worker/.config/whipper \
     --mount type=bind,source={{joinPath .chezmoi.homeDir "/whipper" }},target=/whipper \
     --mount type=bind,source={{joinPath .chezmoi.homeDir "/output"}},target=/output \
     whipperteam/whipper"
+{{end}}
+
 
 {{ if lookPath "kitten" }}
 alias imgcat="kitty +kitten icat"
@@ -48,7 +53,7 @@ alias k="kubectl"
 {{end}}
 
 {{ if lookPath "youtube-dl" }}
-alias ydl='youtube-dl'
+function ydl () { youtube-dl --no-progress ${1} & }
 {{end}}
 
 {{if lookPath "docker"}}

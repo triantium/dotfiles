@@ -16,6 +16,12 @@ key = "s"
 
 [[keybind]]
 command = "Execute"
+value = "rofi -show drun"
+modifier = ["modkey"]
+key = "g"
+
+[[keybind]]
+command = "Execute"
 value = "x-terminal-emulator"
 modifier = ["modkey"]
 key = "Return"
@@ -236,7 +242,7 @@ value = "9"
 modifier = ["modkey", "Shift"]
 key = "9"
 
-# Link für alle verfügbaren keys 
+# Link für alle verfügbaren keys
 # https://github.com/leftwm/leftwm/blob/master/leftwm-core/src/utils/xkeysym_lookup.rs
 
 # Screenshoots
@@ -249,7 +255,7 @@ key="Print"
 
 
 # Volume
-# 
+#
 
 [[keybind]]
 command="Execute"
