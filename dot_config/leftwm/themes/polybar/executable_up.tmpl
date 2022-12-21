@@ -26,7 +26,7 @@ fi
 
 
 #set the theme.toml config
-echo "LoadTheme $SCRIPTPATH/theme.toml" > $XDG_RUNTIME_DIR/leftwm/commands.pipe
+leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 
 {{ if lookPath "nitrogen" }}
