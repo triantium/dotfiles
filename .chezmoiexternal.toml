@@ -12,3 +12,8 @@
     type = "git-repo"
     url = "git@github.com:tilt-dev/tiltfile.tmbundle"
     refreshPeriod = "168h"
+
+[".***REMOVED***"]
+    type = "git-repo"
+    url = "https://github.com/***REMOVED***-vm/***REMOVED***.git"
+    refreshPeriod = "168h"
