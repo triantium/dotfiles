@@ -104,9 +104,13 @@ if ! shopt -oq posix; then
 fi
 
 # setup ***REMOVED***
+if [ -d "${HOME}/.***REMOVED***" ] ; then
 . $HOME/.***REMOVED***/***REMOVED***.sh
 . $HOME/.***REMOVED***/completions/***REMOVED***.bash
-. $HOME/.***REMOVED***/plugins/java/set-java-home.bash
+fi
+if [ -d "${HOME}/.***REMOVED***/plugins/java" ] ; then
+  . $HOME/.***REMOVED***/plugins/java/set-java-home.bash
+fi
 
 
 eval "$(starship init bash)"
