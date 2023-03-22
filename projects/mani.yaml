@@ -6,6 +6,10 @@ projects:
     path: geek/ansible-karlshuid
     url: git@git.geekinbusiness.de:GeekInBusiness/ansible-karlshuid.git
 
+  kanbanboard:
+    path: geek/kanbanboard
+    url: git@git.geekinbusiness.de:GeekInBusiness/kanbanboard.git
+
   ansible-dev-setup:
     path: personal/ansible-dev-setup
     url: git@github.com:triantium/developeransible.git

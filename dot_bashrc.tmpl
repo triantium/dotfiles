@@ -126,3 +126,9 @@ if [[ -c switcher ]] ; then
   source /usr/local/bin/switch.sh
 fi
 {{end}}
+
+{{ if lookPath "direnv" }}
+if [[ -c direnv ]] ; then
+  eval "$(direnv hook bash)"
+fi
+{{end}}

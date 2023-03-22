@@ -219,4 +219,10 @@ fi
 pfetch
 {{end}}
 
+{{ if lookPath "direnv" }}
+if [[ -c direnv ]] ; then
+  eval "$(direnv hook zsh)"
+fi
+{{end}}
+
 
