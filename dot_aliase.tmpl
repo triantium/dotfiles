@@ -60,3 +60,7 @@ function ydl () { youtube-dl --no-progress ${1} & }
 alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) docker rmi $(docker images -q)'
 {{end}}
 
+{{ if lookPath "nerdctl" }}
+alias docker="nerdctl"
+{{end}}
+
