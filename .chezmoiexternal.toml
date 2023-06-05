@@ -18,21 +18,20 @@
     url = "https://github.com/***REMOVED***-vm/***REMOVED***.git"
     refreshPeriod = "168h"
 
-
-[".task/hooks/on-add.task2habitica"]
-type = "file"
-url = "https://raw.githubusercontent.com/robwhitaker/taskwarrior-habitica-bridge/master/hooks/on-add.task2habitica"
-refreshPeriod = "168h"
-executable = true
-
-[".task/hooks/on-exit.task2habitica"]
-type = "file"
-url = "https://raw.githubusercontent.com/robwhitaker/taskwarrior-habitica-bridge/master/hooks/on-exit.task2habitica"
-refreshPeriod = "168h"
-executable = true
-
-[".task/hooks/on-modify.task2habitica"]
-type = "file"
-url = "https://raw.githubusercontent.com/robwhitaker/taskwarrior-habitica-bridge/master/hooks/on-modify.task2habitica"
-refreshPeriod = "168h"
-executable = true
+#[".task/hooks/on-add.task2habitica"]
+#type = "file"
+#url = "https://raw.githubusercontent.com/robwhitaker/taskwarrior-habitica-bridge/master/hooks/on-add.task2habitica"
+#refreshPeriod = "168h"
+#executable = true
+#
+#[".task/hooks/on-exit.task2habitica"]
+#type = "file"
+#url = "https://raw.githubusercontent.com/robwhitaker/taskwarrior-habitica-bridge/master/hooks/on-exit.task2habitica"
+#refreshPeriod = "168h"
+#executable = true
+#
+#[".task/hooks/on-modify.task2habitica"]
+#type = "file"
+#url = "https://raw.githubusercontent.com/robwhitaker/taskwarrior-habitica-bridge/master/hooks/on-modify.task2habitica"
+#refreshPeriod = "168h"
+#executable = true
