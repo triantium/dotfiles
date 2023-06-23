@@ -1,6 +1,6 @@
 # authentication
-user = "Stammeskrieger"
-key = "***REMOVED***"
+user = "{{ (passFields "accounts/last.fm").login }}"
+key = "{{ (passFields "accounts/last.fm").token }}"
 
 # regular expressions for name parsers
 format-localfile = "^(?A.+) - (?T.+)\.[^.]+$"
