@@ -1,4 +1,4 @@
-nodejs latest
+nodejs 20.3.1
 golang latest
 java zulu-javafx-17.30.15
 gradle 7.4

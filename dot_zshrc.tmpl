@@ -86,9 +86,9 @@ plugins+=(sudo)
 {{ if lookPath "go" }}
 plugins+=(golang)
 {{end}}
-{{ if lookPath "***REMOVED***" }}
+if [ -d "{{joinPath .chezmoi.homeDir ".***REMOVED***"}}" ] ; then
 plugins+=(***REMOVED***)
-{{end}}
+fi
 
 
 source $ZSH/oh-my-zsh.sh
