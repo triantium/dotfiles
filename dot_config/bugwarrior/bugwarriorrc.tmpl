@@ -107,7 +107,7 @@ github.query= is:open assignee:triantium
 # - 'github.username' is the github entity you want to pull
 #   issues for.  It could be you, or some other user entirely.
 github.login = triantium
-github.token = {{- pass "accounts/github.com/token" }}
+github.token = {{ if lookPath "pass" }}{{-  pass "accounts/github.com/token" }}{{end}}
 
 [my_github]
 service = github
@@ -115,14 +115,14 @@ github.default_priority = L
 github.add_tags = personal, 
 github.username = triantium
 github.login = triantium
-github.token = {{- pass "accounts/github.com/token" }}
+github.token = {{ if lookPath "pass" }}{{-  pass "accounts/github.com/token" }}{{end}}
 
 
 [gitea]
 service = gitea
 gitea.username=manuel.mueller.geekadmin
 gitea.login=manuel.mueller.geekadmin
-gitea.token={{- pass "token/git.geekinbusiness.de" }}
+gitea.token={{ if lookPath "pass" }}{{-  pass "token/git.geekinbusiness.de" }}{{end}}
 gitea.add_tags=geek
 gitea.default_priority=M
 gitea.host="https://git.geekinbusiness.de"

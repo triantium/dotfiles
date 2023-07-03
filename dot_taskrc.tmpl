@@ -37,7 +37,7 @@ taskd.credentials=inthe_am/manuelbertold/15c1baf1-4241-428a-95f8-1b498377aeab
 taskd.trust=strict
 
 habitica.user_id=2b9a94eb-919d-4779-84f6-afcc3164804f
-habitica.api_key={{pass "api/habitica.com"}}
+habitica.api_key={{ if lookPath "pass" }}{{ pass "api/habitica.com" }}{{end}}
 
 # Habitica UDAs
 uda.habitica_uuid.label=Habitica UUID

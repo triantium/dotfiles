@@ -1,5 +1,5 @@
 configs:
   docker.io:
     auth:
-      username: '{{ (passFields "accounts/docker.com").login }}'
-      password: '{{pass "accounts/docker.com"}}'
+      username: '{{ if lookPath "pass" }}{{ ( passFields "accounts/docker.com").login  }}{{end}}'
+      password: '{{ if lookPath "pass" }}{{ pass "accounts/docker.com" }}{{end}}'

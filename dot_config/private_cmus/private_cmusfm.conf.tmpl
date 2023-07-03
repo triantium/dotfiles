@@ -1,6 +1,6 @@
 # authentication
-user = "{{ (passFields "accounts/last.fm").login }}"
-key = "{{ (passFields "accounts/last.fm").token }}"
+user = "{{ if lookPath "pass" }}{{ ( passFields "accounts/last.fm").login  }}{{end}}"
+key = "{{ if lookPath "pass" }}{{ ( passFields "accounts/last.fm").token  }}{{end}}"
 
 # regular expressions for name parsers
 format-localfile = "^(?A.+) - (?T.+)\.[^.]+$"

@@ -1,4 +1,4 @@
-OCO_OPENAI_API_KEY={{ pass "token/openai.com" }}
+OCO_OPENAI_API_KEY={{ if lookPath "pass" }}{{ pass "token/openai.com" }}{{end}}
 #OCO_OPENAI_MAX_TOKENS=<max response tokens from openAI API>
 #OCO_OPENAI_BASE_PATH=<may be used to set proxy path to openAI api>
 OCO_DESCRIPTION=true

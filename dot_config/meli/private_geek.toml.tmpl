@@ -2,7 +2,7 @@
 root_mailbox = "INBOX"
 format = "imap"
 server_hostname="imap.geekinbusiness.de"
-server_password="{{ pass "accounts/mail.geekinbusiness.de" }}"
+server_password="{{ if lookPath "pass" }}{{ pass "accounts/mail.geekinbusiness.de" }}{{end}}"
 server_username="manuel.mueller.geekadmin"
 server_port="993" # imaps
 #server_port="143" # STARTTLS

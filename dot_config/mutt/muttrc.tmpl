@@ -3,15 +3,15 @@ set editor=vim
 
 # imap
 set my_name = "Manuel Müller"
-set imap_user={{ (passFields "accounts/mailbox.org").email }}
-set imap_pass={{ pass "accounts/mailbox.org" }}
-set folder=imaps://{{ (passFields "accounts/mailbox.org" ).imap }}
+set imap_user={{ if lookPath "pass" }}{{ ( passFields "accounts/mailbox.org").email  }}{{end}}
+set imap_pass={{ if lookPath "pass" }}{{ pass "accounts/mailbox.org" }}{{end}}
+set folder=imaps://{{ if lookPath "pass" }}{{ ( passFields "accounts/mailbox.org" ).imap  }}{{end}}
 set spoolfile   = +INBOX
 mailboxes       = +INBOX
 
 # smtp
 set smtp_pass = $imap_pass
-set smtp_url=smtps://$imap_user@{{(passFields "accounts/mailbox.org").smtp}}
+set smtp_url=smtps://$imap_user@{{ if lookPath "pass" }}{{ ( passFields "accounts/mailbox.org").smtp }}{{end}}
 set from = {{.chezmoi.hostname}}@triantium.de
 set use_from = yes
 set ssl_force_tls = yes
