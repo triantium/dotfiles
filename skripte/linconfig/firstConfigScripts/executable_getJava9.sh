@@ -36,13 +36,12 @@ echo "Start Download"
 echo "Finished Download of $java_version"
 # then
 echo "Unpacking"
-tar -xzvf $filename 
+tar -xzvf $filename
 echo "Removing"
-#rm -i $filename 
+#rm -i $filename
 
 sudo update-alternatives --install "/usr/bin/java" "java" "/opt/Oracle_Java/jdk-9/bin/java" 1
 sudo update-alternatives --install "/usr/bin/javac" "javac" "/opt/Oracle_Java/jdk-9/bin/javac" 1
 sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/opt/Oracle_Java/jdk-9/bin/javaws" 1
 sudo update-alternatives --install "/usr/bin/jar" "jar" "/opt/Oracle_Java/jdk-9/bin/jar" 1
 sudo update-alternatives --install "/usr/bin/jshell" "jshell" "/opt/Oracle_Java/jdk-9/bin/jshell" 1
-

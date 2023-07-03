@@ -59,9 +59,9 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces    = clickable .  (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9"]
 
- where                                                                       
+ where
          clickable l = [ "<action=xdotool key modm+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
-                             (i,ws) <- zip [1..9] l,                                        
+                             (i,ws) <- zip [1..9] l,
                             let n = i ]
 
 -- Border colors for unfocused and focused windows, respectively.
@@ -316,7 +316,7 @@ main = do {
                         , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"  -- Urgent workspace
                         , ppExtras  = [windowCount]                           -- # of windows current workspace
                         , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]
-                        } 
+                        }
     };
 }
 

@@ -26,4 +26,3 @@ keytool -import -alias ISRG_ROOT_X3 -keystore $PAYARA_CA_STORE -file /tmp/isrgro
 
 #$PAYARA_DIR/bin/asadmin set configs.config.server-config.network-config.protocols.protocol.http-listener-2.ssl.cert-nickname=$CERT_ALIAS
 $PAYARA_DIR/bin/asadmin restart-domain $PAYARA_DOMAIN
-

@@ -5,7 +5,7 @@
 # Here you define a comma separated list of targets.  Each of them must have a
 # section below determining their properties, how to query them, etc.  The name
 # is just a symbol, and doesn't have any functional importance.
-targets = gitea 
+targets = gitea
 # ,my_github,siller_github
 
 # If unspecified, the default taskwarrior config will be used.
@@ -75,7 +75,7 @@ legacy_matching = False
 [siller_github]
 service = github
 github.default_priority = M
-github.add_tags = siller, 
+github.add_tags = siller,
 
 # This specifies that we should pull issues from repositories belonging
 # to the 'ralphbean' github account.  See the note below about
@@ -97,7 +97,7 @@ github.username = SillerMobile
 github.include_user_issues = False
 github.include_user_repos = False
 
-github.query= is:open assignee:triantium 
+github.query= is:open assignee:triantium
 
 # Note that login and username can be different:  I can login as me, but
 # scrape issues from an organization's repos.
@@ -112,7 +112,7 @@ github.token = {{ if lookPath "pass" }}{{-  pass "accounts/github.com/token" }}{
 [my_github]
 service = github
 github.default_priority = L
-github.add_tags = personal, 
+github.add_tags = personal,
 github.username = triantium
 github.login = triantium
 github.token = {{ if lookPath "pass" }}{{-  pass "accounts/github.com/token" }}{{end}}

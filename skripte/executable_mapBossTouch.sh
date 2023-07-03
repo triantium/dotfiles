@@ -5,9 +5,9 @@ displays=$(xrandr | grep connected |grep -v disconnected | awk '{print $1}')
 
 echo "Displays"
 i=0
-for disp in ${displays} ; do 
+for disp in ${displays} ; do
   ((i=i+1))
-  echo "  (${i}) ${disp}" 
+  echo "  (${i}) ${disp}"
   selections[$i]=${disp}
 done
 
@@ -27,5 +27,3 @@ for id in ${touchscreens}; do
   echo "Setting id=${id} to Display ${selected_disp}"
   xinput map-to-output ${id} ${selected_disp}
 done
-
-

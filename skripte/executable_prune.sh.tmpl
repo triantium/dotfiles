@@ -10,6 +10,3 @@ export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
 restic forget \
 --keep-daily 7 --keep-weekly 5 --keep-monthly 12 --keep-yearly 75 \
 --prune
-
-
-

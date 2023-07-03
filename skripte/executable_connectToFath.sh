@@ -43,4 +43,3 @@ fi
 
 doas openvpn --config "${XDG_CONFIG_HOME}/openvpn/GeekInBusiness@Fath.conf" \
   --auth-user-pass "${auth}"
-

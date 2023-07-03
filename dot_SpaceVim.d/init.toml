@@ -73,4 +73,3 @@ default_height = 30
     name = 'git'
 [[layers]]
     name = 'VersionControl'
-

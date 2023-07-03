@@ -10,7 +10,7 @@
 # Default-Stop:      0 1 6
 # Short-Description: Starts the PayaraDomain
 # Description:       Same as Short
-#                    
+#
 ### END INIT INFO
 
 # Author: Manuel Müller,Oracle
@@ -85,8 +85,5 @@ esac
 #
 # Example commands that demonstrate how to run GlassFish on the "special" ports < 1024
 #
-#iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 8080 
+#iptables -t nat -A PREROUTING -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 8080
 #iptables -t nat -A PREROUTING -p udp -m udp --dport 80 -j REDIRECT --to-ports 8080
-
-
-

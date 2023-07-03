@@ -673,4 +673,3 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/vim,node,java,linux,maven,netbeans,intellij,intellij+all,visualstudio,visualstudiocode
-

@@ -63,4 +63,3 @@ alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) doc
 {{ if lookPath "nerdctl" }}
 alias docker="nerdctl"
 {{end}}
-

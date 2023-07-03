@@ -4,4 +4,3 @@ disabled = false
 [[battery.display]]
 threshold = 17
 style = "bold red"
-

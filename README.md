@@ -1,3 +1,3 @@
 #dotfiles
 
-Managed via [chezmoi](https://github.com/twpayne/chezmoi) 
+Managed via [chezmoi](https://github.com/twpayne/chezmoi)

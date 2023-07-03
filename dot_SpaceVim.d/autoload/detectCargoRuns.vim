@@ -18,4 +18,3 @@ function! s:cargo_task() abort
     endif
 endfunction
 call SpaceVim#plugins#tasks#reg_provider(funcref('s:cargo_task'))
-
