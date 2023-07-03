@@ -103,13 +103,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# setup ***REMOVED***
-if [ -d "${HOME}/.***REMOVED***" ] ; then
-. $HOME/.***REMOVED***/***REMOVED***.sh
-. $HOME/.***REMOVED***/completions/***REMOVED***.bash
+# setup .adfs
+if [ -d "${HOME}/.adfs" ] ; then
+. $HOME/.adfs/adfs.sh
+. $HOME/.adfs/completions/adfs.bash
 fi
-if [ -d "${HOME}/.***REMOVED***/plugins/java" ] ; then
-  . $HOME/.***REMOVED***/plugins/java/set-java-home.bash
+if [ -d "${HOME}/.adfs/plugins/java" ] ; then
+  . $HOME/.adfs/plugins/java/set-java-home.bash
 fi
 
 

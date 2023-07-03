@@ -86,8 +86,8 @@ plugins+=(sudo)
 {{ if lookPath "go" }}
 plugins+=(golang)
 {{end}}
-if [ -d "{{joinPath .chezmoi.homeDir ".***REMOVED***"}}" ] ; then
-plugins+=(***REMOVED***)
+if [ -d "{{joinPath .chezmoi.homeDir ".adfs"}}" ] ; then
+plugins+=(adfs)
 fi
 
 
@@ -100,10 +100,10 @@ fi
 
 
 
-# Setup ***REMOVED***
-if [ -f "$HOME/.***REMOVED***/plugins/java/set-java-home.zsh" ] ; then
+# Setup adfs
+if [ -f "$HOME/.adfs/plugins/java/set-java-home.zsh" ] ; then
 # Setup JAVA_HOME
-. "$HOME/.***REMOVED***/plugins/java/set-java-home.zsh"
+. "$HOME/.adfs/plugins/java/set-java-home.zsh"
 fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
