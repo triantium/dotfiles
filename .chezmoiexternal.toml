@@ -13,7 +13,7 @@
     url = "git@github.com:tilt-dev/tiltfile.tmbundle"
     refreshPeriod = "168h"
 
-[".adfs"]
+[".asdf"]
     type = "git-repo"
     url = "https://github.com/asdf-vm/asdf.git"
     refreshPeriod = "168h"
