@@ -73,5 +73,10 @@ if [ -d "{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}" ] ; then
   export PATH="{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}"
 fi
 
+if [ -d "{{joinPath .chezmoi.homeDir "go/bin"}}" ] ; then
+  export PATH="{{joinPath .chezmoi.homeDir "go/bin"}}:$PATH"
+fi
+
+
 
 export WFICA_OPTS="-span a"
