@@ -2,10 +2,10 @@
 
 alias cpuavail='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_available_governors'
 alias cpushow='cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
-alias cpuhigh='echo performance | doas tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+alias cpuhigh='echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+
 alias cmux='tmux attach-session -t cmus || tmux new-session -A -D -s cmus "$(which cmus)"'
-# alias cmus='tmux new-session -A -D -s cmus "$(which cmus)"'
-alias ng="yarn run ng"
+
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -13,7 +13,6 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 {{ if lookPath "whipper" }}
 {{else}}
@@ -63,3 +62,7 @@ alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) doc
 {{ if lookPath "nerdctl" }}
 alias docker="nerdctl"
 {{end}}
+
+if [ -z "$EDITOR" ] ; then
+    alias vim="$EDITOR"
+fi

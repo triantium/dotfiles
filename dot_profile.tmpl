@@ -23,6 +23,8 @@ if [ -x "$(command -v ssh-agent)" ]; then
 fi
 {{ end }}
 
+# Setting PATH according to given directories, if present
+
 if [ -d "{{joinPath .chezmoi.homeDir "go/bin"}}" ] ; then
     PATH="{{joinPath .chezmoi.homeDir "go/bin:$PATH"}}"
 fi
@@ -42,9 +44,6 @@ if [ -d "{{joinPath .chezmoi.homeDir ".cargo/bin"}}" ] ; then
     PATH="{{joinPath .chezmoi.homeDir ".cargo/bin:$PATH"}}"
 fi
 
-if [ -d "{{joinPath .chezmoi.homeDir "istio-1.12.2"}}" ] ; then
-  export PATH="$PATH:$HOME/istio-1.12.2/bin"
-fi
 # $.local/share/flatpak/exports/bin
 
 # set PATH so it includes user's private bin if it exists
@@ -59,9 +58,12 @@ fi
 
 if [[ -c 'nvim' ]] ; then
   export EDITOR=nvim
-else
+elif [[ -c 'vim' ]] ; then
   export EDITOR=vim
+else
+  export EDITOR=vi
 fi
+
 export RESTIC_REPOSITORY="{{ if lookPath "pass" }}{{ ( passFields "backup/restic").repository }}{{end}}"
 # export RESTIC_PASSWORD_FILE="{{joinPath .chezmoi.homeDir ".config/restic/password"}}"
 export RESTIC_PASSWORD_COMMAND='bash -c "pass backup/restic | head -n 1 | tr -d '\n' "'
@@ -73,9 +75,6 @@ if [ -d "{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}" ] ; then
   export PATH="{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}"
 fi
 
-if [ -d "{{joinPath .chezmoi.homeDir "go/bin"}}" ] ; then
-  export PATH="{{joinPath .chezmoi.homeDir "go/bin"}}:$PATH"
-fi
 
 
 
