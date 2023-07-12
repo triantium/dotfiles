@@ -87,7 +87,7 @@ plugins+=(sudo)
 plugins+=(golang)
 {{end}}
 if [ -d "{{joinPath .chezmoi.homeDir ".asdf"}}" ] ; then
-plugins+=(.asdf)
+plugins+=(asdf)
 fi
 
 
