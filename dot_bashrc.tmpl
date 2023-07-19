@@ -112,8 +112,9 @@ if [ -d "${HOME}/.adfs/plugins/java" ] ; then
   . $HOME/.adfs/plugins/java/set-java-home.bash
 fi
 
-
+{{ if lookPath "starship" }}
 eval "$(starship init bash)"
+{{end}}
 
 {{ if lookPath "terraform" }}
 if [[ -c terraform ]] ; then

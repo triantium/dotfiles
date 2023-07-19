@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-TOKEN="$(pass token/chaster.app | head -n 1 | tr -d '\n')"
+TOKEN="{{ if lookPath "pass" }}{{ pass "token/chaster.app" }}{{end}}"
 
 test_conversation='64592b909e10798e60975e42' # Lucy
-conversation='64b58db70bcb3112e5f0c7ee' # Desse
+real_conversation='64b58db70bcb3112e5f0c7ee' # Desse
 
 #curl \
 #  --location \
@@ -34,6 +34,6 @@ curl \
     -H 'Content-Type: application/json' \
   --request POST \
   --header "Authorization: Bearer ${TOKEN}" \
-  "https://api.chaster.app/conversations/${conversation}"
+  "https://api.chaster.app/conversations/${real_conversation}"
 
 rm body.json
