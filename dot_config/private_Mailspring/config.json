@@ -1,0 +1,215 @@
+{
+  "*": {
+    "env": "production",
+    "core": {
+      "themes": [
+        "ui-light"
+      ],
+      "disabledPackages": [
+        "message-view-on-github",
+        "personal-level-indicators",
+        "phishing-detection",
+        "nylas-private-salesforce",
+        "github-contact-card",
+        "keybase",
+        "composer-markdown",
+        "composer-scheduler",
+        "composer-mail-merge",
+        "send-and-archive",
+        "main-calendar"
+      ],
+      "workspace": {
+        "mode": "split"
+      },
+      "keymapTemplate": "Outlook",
+      "tutorial": {
+        "seen": [
+          "ThreadSearchBar",
+          "ActivityListButton",
+          "ModeToggle",
+          "ToolbarSnooze",
+          "LinkTrackingButton",
+          "OpenTrackingButton",
+          "SendLaterButton"
+        ]
+      },
+      "theme": "ui-dark",
+      "translation": {
+        "disabled": [
+          "de"
+        ],
+        "automatic": []
+      }
+    },
+    "identity": {
+      "id": "f7181107-3e32-487c-aab5-97ccaebd0fa4",
+      "firstName": "Manuel",
+      "lastName": "Müller",
+      "emailAddress": "triantium@mailbox.org",
+      "object": "identity",
+      "createdAt": "2023-03-15T11:40:34.000Z",
+      "stripePlan": "Basic",
+      "stripePlanEffective": "Basic",
+      "stripeCustomerId": "cus_NWwa9FH9qOl8xH",
+      "stripePeriodEnd": "2023-08-15T11:40:34.000Z",
+      "featureUsage": {
+        "snooze": {
+          "quota": 15,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "send-later": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "thread-sharing": {
+          "quota": 3,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "link-tracking": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 1,
+          "featureLimitName": "basic-limit"
+        },
+        "open-tracking": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 1,
+          "featureLimitName": "basic-limit"
+        },
+        "contact-profiles": {
+          "quota": 3,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "send-reminders": {
+          "quota": 5,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        },
+        "translation": {
+          "quota": 50,
+          "period": "weekly",
+          "usedInPeriod": 0,
+          "featureLimitName": "basic-limit"
+        }
+      }
+    },
+    "accounts": [
+      {
+        "id": "1877bd14",
+        "metadata": [],
+        "name": "Manuel Müller",
+        "provider": "imap",
+        "emailAddress": "triantium@mailbox.org",
+        "settings": {
+          "imap_host": "imap.mailbox.org",
+          "imap_port": 993,
+          "imap_username": "triantium@mailbox.org",
+          "imap_security": "SSL / TLS",
+          "imap_allow_insecure_ssl": false,
+          "smtp_host": "smtp.mailbox.org",
+          "smtp_port": 587,
+          "smtp_username": "triantium@mailbox.org",
+          "smtp_security": "STARTTLS",
+          "smtp_allow_insecure_ssl": false,
+          "container_folder": ""
+        },
+        "label": "triantium@mailbox.org",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "authedAt": 1678881033.551,
+        "color": "",
+        "__cls": "Account"
+      },
+      {
+        "id": "e6dfa67a",
+        "metadata": [],
+        "name": "Manuel Müller",
+        "provider": "imap",
+        "emailAddress": "Manu.Bernza@web.de",
+        "settings": {
+          "imap_host": "imap.web.de",
+          "imap_port": 993,
+          "imap_username": "Manu.Bernza",
+          "imap_security": "SSL / TLS",
+          "imap_allow_insecure_ssl": false,
+          "smtp_host": "smtp.web.de",
+          "smtp_port": 587,
+          "smtp_username": "Manu.Bernza",
+          "smtp_security": "STARTTLS",
+          "smtp_allow_insecure_ssl": false,
+          "container_folder": ""
+        },
+        "label": "Manu.Bernza@web.de",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "authedAt": 1678880515.631,
+        "color": "",
+        "__cls": "Account"
+      },
+      {
+        "id": "f8bbd432",
+        "metadata": [],
+        "name": "Manuel Müller",
+        "provider": "imap",
+        "emailAddress": "manuel.mueller@geekinbusiness.de",
+        "settings": {
+          "imap_host": "imap.geekinbusiness.de",
+          "imap_port": 993,
+          "imap_username": "manuel.mueller.geekadmin",
+          "imap_security": "SSL / TLS",
+          "imap_allow_insecure_ssl": false,
+          "smtp_host": "smtp.geekinbusiness.de",
+          "smtp_port": 587,
+          "smtp_username": "manuel.mueller.geekadmin",
+          "smtp_security": "STARTTLS",
+          "smtp_allow_insecure_ssl": false,
+          "container_folder": ""
+        },
+        "label": "manuel.mueller@geekinbusiness.de",
+        "autoaddress": {
+          "type": "bcc",
+          "value": ""
+        },
+        "aliases": [],
+        "syncState": "ok",
+        "authedAt": 1678880699.585,
+        "color": "",
+        "__cls": "Account"
+      }
+    ],
+    "accountsVersion": 7,
+    "containerFolderDefault": "",
+    "signatures": {
+      "initial": {
+        "id": "initial",
+        "title": "Default",
+        "body": "<table cellPadding=\"0\" cellSpacing=\"0\"><tbody><tr><td style=\"vertical-align:top\"><img alt=\"\" src=\"https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e/?s=160&amp;msw=160&amp;msh=160\" width=\"60\" height=\"60\" style=\"max-width:60px;max-height:60px;margin-right:10px\"/></td><td><div>Manuel Mülller</div><div style=\"font-size:0.9em;border-top:1px solid gray;min-width:250px;max-width:300px;margin-top:4px;padding-top:4px\"><div><div></div><div><a href=\"https://triantium.ddns.net\">https://triantium.ddns.net</a></div><div></div></div></div></td></tr></tbody></table>",
+        "data": {
+          "title": "",
+          "templateName": "SignatureA",
+          "name": "Manuel Mülller",
+          "websiteURL": "https://triantium.ddns.net",
+          "photoURL": "gravatar"
+        }
+      }
+    }
+  }
+}
