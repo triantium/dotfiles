@@ -1,16 +1,10 @@
-{{ .chezmoi.homeDir }}/.config
-{{ .chezmoi.homeDir }}/.gnupg
-{{ .chezmoi.homeDir }}/.minecraft
-{{ .chezmoi.homeDir }}/.password-store
-{{ .chezmoi.homeDir }}/.ssh
-{{ .chezmoi.homeDir }}/.task
-{{ .chezmoi.homeDir }}/.taskrc
-{{ .chezmoi.homeDir }}/.timewarrior
-{{ .chezmoi.homeDir }}/Bilder
-{{ .chezmoi.homeDir }}/Desktop
-{{ .chezmoi.homeDir }}/Dokumente
-{{ .chezmoi.homeDir }}/Documents
-{{ .chezmoi.homeDir }}/Schreibtisch
-{{ .chezmoi.homeDir }}/backups
-{{ .chezmoi.homeDir }}/projects
-{{ .chezmoi.homeDir }}/Zotero
+{{- $folders := list  ".config" ".gnupg"
+".minecraft" ".password-store" ".ssh"
+".task" ".taskrc" ".timewarrior" "Bilder" "Pictures"
+"Dokumente" "Documents" "Schreibtisch"
+"Desktop" "backups" "projects" "Zotero" -}}
+{{- range  $folders }}
+{{- if (joinPath $.chezmoi.homeDir . | lstat) }}
+{{ joinPath $.chezmoi.homeDir . }}
+{{- end -}}
+{{- end -}}
