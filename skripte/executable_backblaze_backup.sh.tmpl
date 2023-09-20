@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# shellcheck disable=SC2140
+export RESTIC_REPOSITORY='s3:s3.us-east-005.backblazeb2.com/triantium-backups/restic'
+# export RESTIC_PASSWORD_FILE="{{joinPath .chezmoi.homeDir ".config/restic/password"}}"
+export RESTIC_PASSWORD_COMMAND="echo '{{ if lookPath "pass" }}{{ pass "backup/restic" }}{{end}}' | head -n 1 | tr -d '\n'"
+export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
+
+
+export AWS_ACCESS_KEY_ID='005f86c75c40d360000000001'
+export AWS_SECRET_ACCESS_KEY='{{ if lookPath "pass" }}{{ pass "accounts/backblaze.com/keys/backup-key" }}{{end}}'
+
+backup_file=$(mktemp)
+
+function finish {
+  mutt -s "${SUBJECT}" triantium@mailbox.org < "${backup_file}"
+  rm "${backup_file}"
+}
+
+trap finish EXIT
+
+restic cat config || restic init # if not already inititialized
+
+restic backup --files-from="${RESTIC_FILES}" |& tee "${backup_file}"
+
+EXIT_CODE=$?
+
+echo  "${EXIT_CODE}"
+if [ "${EXIT_CODE}" == "0" ] ; then
+  echo all clear;
+  SUBJECT="Backup Backblaze {{.chezmoi.hostname}}"
+else
+  echo fuck;
+  SUBJECT="Error Backup Backblaze {{.chezmoi.hostname}}"
+fi

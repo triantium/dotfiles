@@ -1,14 +1,21 @@
 #!/bin/bash
 
 # shellcheck disable=SC2140
-export RESTIC_REPOSITORY="{{ if lookPath "pass" }}{{ ( passFields "backup/restic").repository }}{{end}}"
-export RESTIC_PASSWORD_FILE="{{joinPath .chezmoi.homeDir ".config/restic/password"}}"
+export RESTIC_REPOSITORY='{{ if lookPath "pass" }}{{ ( passFields "backup/restic").repository }}{{end}}''
+export RESTIC_PASSWORD_FILE='{{joinPath .chezmoi.homeDir ".config/restic/password"}}'
 # export RESTIC_PASSWORD_COMMAND="pass backup/restic | head -n 1 | tr -d '\n'"
 export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
 
-rm backup.log
+backup_file=$(mktemp)
 
-restic backup --files-from="${RESTIC_FILES}" |& tee backup.log
+function finish {
+  mutt -s "${SUBJECT}" triantium@mailbox.org < "${backup_file}"
+  rm "${backup_file}"
+}
+
+trap finish EXIT
+
+restic backup --files-from="${RESTIC_FILES}" |& tee "${backup_file}"
 
 EXIT_CODE=$?
 
@@ -20,5 +27,3 @@ else
   echo fuck;
   SUBJECT="Error Backup {{.chezmoi.hostname}}"
 fi
-
-mutt -s "${SUBJECT}" triantium@mailbox.org < backup.log
