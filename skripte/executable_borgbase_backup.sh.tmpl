@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# shellcheck disable=SC2140
+export RESTIC_REPOSITORY='{{ if lookPath "pass" }}{{ ( passFields "accounts/borgbase.com/repos/backup").url }}{{end}}'
+# export RESTIC_PASSWORD_COMMAND="echo '{{ if lookPath "pass" }}{{ pass "accounts/borgbase.com/repos/backup" }}{{end}}' | head -n 1 | tr -d '\n'"
+export RESTIC_PASSWORD='{{ if lookPath "pass" }}{{ pass "accounts/borgbase.com/repos/backup" }}{{end}}'
+export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
+
+backup_file=$(mktemp)
+
+function finish {
+  mutt -s "${SUBJECT}" triantium@mailbox.org < "${backup_file}"
+  rm "${backup_file}"
+}
+
+trap finish EXIT
+
+restic backup --files-from="${RESTIC_FILES}" |& tee "${backup_file}"
+
+EXIT_CODE=$?
+
+echo  "${EXIT_CODE}"
+if [ "${EXIT_CODE}" == "0" ] ; then
+  echo all clear;
+  SUBJECT="Backup Borgbase {{.chezmoi.hostname}}"
+else
+  echo fuck;
+  SUBJECT="Error Backup Borgbase {{.chezmoi.hostname}}"
+fi
