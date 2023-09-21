@@ -1,0 +1,50 @@
+{{- $folders := list  ".config" ".gnupg"
+".password-store" ".ssh" "projects" -}}
+
+source_directories:
+{{- range  $folders }}
+  {{- if (joinPath $.chezmoi.homeDir . | lstat) }}
+  - {{ joinPath $.chezmoi.homeDir . }}
+  {{- end -}}
+{{- end -}}
+
+
+# Paths of local or remote repositories to backup to.
+repositories:
+  - path: '{{ if lookPath "pass" }}{{ ( passFields "accounts/borgbase.com/repos/backup").ssh }}{{end}}'
+    label: 'borgbase'
+  - path: /var/lib/backups/local.borg
+    label: local
+
+# Stay in same file system (optional)
+one_file_system: true
+
+compression: auto,zstd
+encryption_passphrase: '{{ if lookPath "pass" }}{{ pass "accounts/borgbase.com/repos/backup" }}{{end}}'
+
+# Number of times to retry a failing backup before giving up.
+retries: 5
+retry_wait: 5
+
+# Retention policy for how many backups to keep.
+keep_daily: 7
+keep_weekly: 4
+keep_monthly: 12
+
+# List of checks to run to validate your backups.
+checks:
+    - name: repository
+      frequency: 4 weeks
+    - name: archives
+      frequency: 8 weeks
+
+# Custom preparation scripts to run.
+# before_backup:
+#    - prepare-for-backup.sh
+
+# Databases to dump and include in backups.
+#postgresql_databases:
+#    - name: users
+
+# Third-party services to notify you if backups aren't happening.
+# healthchecks: https://hc-ping.com/be067061-cf96-4412-8eae-62b0c50d6a8c
