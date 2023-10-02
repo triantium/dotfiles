@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # shellcheck disable=SC2140
-export RESTIC_REPOSITORY='{{ if lookPath "pass" }}{{ ( passFields "backup/restic").repository }}{{end}}''
+export RESTIC_REPOSITORY='{{ if lookPath "pass" }}{{ ( passFields "backup/restic").repository }}{{end}}'
 export RESTIC_PASSWORD_FILE='{{joinPath .chezmoi.homeDir ".config/restic/password"}}'
 # export RESTIC_PASSWORD_COMMAND="pass backup/restic | head -n 1 | tr -d '\n'"
+unset RESTIC_PASSWORD_COMMAND
 export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
 
 backup_file=$(mktemp)
