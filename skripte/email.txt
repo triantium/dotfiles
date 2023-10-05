@@ -1,7 +1,0 @@
-From: John Smith <backups@triantium.de>
-To: Joe Smith <triantium@mailbox.org>
-Subject: an example.com example email
-Date: Mon, 7 Nov 2016 08:45:16
-
-Dear Joe,
-Welcome to this example email. What a lovely day.

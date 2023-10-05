@@ -1,1 +1,0 @@
-COPY (SELECT table_to_xml('pimright', true, false, '')) TO '/home/manu/Schreibtisch/pimright.xml';
