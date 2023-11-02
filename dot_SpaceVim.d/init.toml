@@ -25,7 +25,6 @@
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
     filemanager = "nerdtree"
-   bootstrap_after="cargo_task"
 
 # Enable Colorscheme Layer
 [[layers]]

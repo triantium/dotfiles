@@ -5,7 +5,7 @@
 
 [".SpaceVim"]
     type = "git-repo"
-    url = "git@github.com:SpaceVim/SpaceVim.git"
+    url = "https://gitlab.com/SpaceVim/SpaceVim.git"
     refreshPeriod = "168h"
 
 [".config/textmate/tiltfile.tmbundle"]
