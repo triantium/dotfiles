@@ -1,0 +1,15 @@
+# Cargo Config Toml
+
+[target.x86_64-unknown-linux-gnu]
+# Configure Mold Linker
+# Moldpath "{{ lookPath "mold" }}"
+{{ if lookPath "mold" }}
+{{ if lookPath "clang" }}
+linker = "clang"
+rustflags = ["-C", "link-arg=-fuse-ld={{ lookPath "mold" }}"]
+{{else}}
+rustflags = ["-C", "link-arg=-fuse-ld={{ lookPath "mold" }}"]
+{{end}}
+{{else}}
+# Mold not found
+{{end}}
