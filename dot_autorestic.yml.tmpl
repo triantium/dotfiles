@@ -1,0 +1,26 @@
+version: 2
+{{ $folders := list  ".config" ".gnupg"
+".minecraft" ".password-store" ".ssh"
+".task" ".taskrc" ".timewarrior" "Bilder" "Pictures"
+"Dokumente" "Documents" "Schreibtisch"
+"Desktop" "backups" "projects" "Zotero" }}
+
+locations:
+  home:
+    from:
+     {{- range  $folders }}
+     {{- if (joinPath $.chezmoi.homeDir . | lstat) }}
+       - {{ joinPath $.chezmoi.homeDir . }}
+     {{- end }}
+     {{- end }}
+    to:
+      - remote
+
+backends:
+  remote:
+    type: s3
+    path: 'http://nas.fritz.box:9050/autorestic'
+    key: {{ if lookPath "pass" }}{{-  pass "backup/restic" -}}{{end}}
+    env:
+      AWS_ACCESS_KEY_ID: {{ if lookPath "pass" }}'{{ ( passFields "ownstuff/minio/keys/autorestic").access_key }}'{{end}}
+      AWS_SECRET_ACCESS_KEY: {{ if lookPath "pass" }}'{{ ( passFields "ownstuff/minio/keys/autorestic").secret_key }}'{{end}}
