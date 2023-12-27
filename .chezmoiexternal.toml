@@ -1,6 +1,6 @@
 [".oh-my-zsh"]
     type = "git-repo"
-    url = "git@github.com:ohmyzsh/ohmyzsh.git"
+    url = "https://github.com/ohmyzsh/ohmyzsh.git"
     refreshPeriod = "168h"
 
 [".SpaceVim"]
@@ -10,7 +10,7 @@
 
 [".config/textmate/tiltfile.tmbundle"]
     type = "git-repo"
-    url = "git@github.com:tilt-dev/tiltfile.tmbundle"
+    url = "https://github.com/tilt-dev/tiltfile.tmbundle.git"
     refreshPeriod = "168h"
 
 [".asdf"]
