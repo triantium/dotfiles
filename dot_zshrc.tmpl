@@ -222,9 +222,14 @@ if [[ -c direnv ]] ; then
 fi
 {{end}}
 
+{{ if lookPath "zoxide" }}
+if [[ -c zoxide ]] ; then
+  eval "$(zoxide init zsh)"
+fi
+{{end}}
+
  # Nix
  if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
     . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
  fi
  # End Nix
-

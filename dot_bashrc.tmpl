@@ -133,3 +133,9 @@ if [[ -c direnv ]] ; then
   eval "$(direnv hook bash)"
 fi
 {{end}}
+
+{{ if lookPath "zoxide" }}
+if [[ -c zoxide ]] ; then
+  eval "$(zoxide init bash)"
+fi
+{{end}}
