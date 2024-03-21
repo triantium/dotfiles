@@ -140,6 +140,12 @@ if [[ -c kubectl ]] ; then
 fi
 {{end}}
 
+{{ if lookPath "k8sgpt" }}
+if [[ -c k8sgpt ]] ; then
+   . <( k8sgpt completion zsh ) ;
+fi
+{{end}}
+
 
 {{ if lookPath "starship" }}
     eval "$(starship init zsh)"
