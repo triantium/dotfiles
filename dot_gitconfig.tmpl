@@ -20,6 +20,7 @@
   weekly = log --author='{{ .email }}' --since '1 week ago' --oneline
   pushnotes = push origin refs/notes/*:refs/notes/*
   project-summary = !which onefetch && onefetch
+  appraise = !{{ .home }}/go/bin/git-appraise
 
 [cola]
  	spellcheck = false
