@@ -6,6 +6,7 @@
 [core]
 	quotepath = false
 	excludesfile = {{ .home }}/.gitignore
+	editor={{ if lookPath "nvim" }}nvim{{ else if lookPath "vim" }}vim{{ else if lookPath "vi" }}vi{{ end }}
 [commit]
         gpgSign = false
 [tag]
