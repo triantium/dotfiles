@@ -1,0 +1,3 @@
+#!/bin/bash
+
+restic restore --host "{{ .chezmoi.hostname }}" --target "{{ .chezmoi.homeDir }}"
