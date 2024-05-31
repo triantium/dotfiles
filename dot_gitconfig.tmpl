@@ -1,5 +1,5 @@
 [user]
-	name = Manuel Müller
+	name = {{ .fullname }}
 	email = {{ .email }}
 [color]
 	ui = auto
@@ -11,8 +11,10 @@
         gpgSign = false
 [tag]
 	forceSignAnnotated = false
+{{ if lookPath "gpg" }}
 [gpg]
 	program = /bin/gpg
+{{end}}
 [alias]
   graph = log --graph --pretty=short --abbrev-commit --date relative
   graphdate = log --graph --pretty=short --abbrev-commit
@@ -24,14 +26,14 @@
   appraise = !{{ .home }}/go/bin/git-appraise
 
 [cola]
- 	spellcheck = false
+  spellcheck = false
 [push]
-	default = current
+  default = current
 [pull]
   rebase = false
 
 [init]
-  templateDir = {{ .home }}/.config/git/template
+  templateDir = {{ .chezmoi.homeDir }}/.config/git/template
 
 {{if (eq .chezmoi.hostname "valkyrie")}}
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
