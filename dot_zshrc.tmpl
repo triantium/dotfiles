@@ -88,6 +88,7 @@ plugins+=(asdf)
 fi
 
 
+
 source $ZSH/oh-my-zsh.sh
 
 # Setup Aliase
@@ -233,6 +234,12 @@ if [[ -c zoxide ]] ; then
   eval "$(zoxide init zsh)"
 fi
 {{end}}
+
+# asdf go plugin
+if [ -d "{{joinPath .chezmoi.homeDir ".asdf/plugins/golang/set-env.zsh"}}" ] ; then
+# asdf plugin add golang https://github.com/asdf-community/asdf-golang.git
+. ~/.asdf/plugins/golang/set-env.zsh
+fi
 
  # Nix
  if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
