@@ -2,7 +2,8 @@
 ".minecraft" ".password-store" ".ssh"
 ".task" ".taskrc" ".timewarrior" "Bilder" "Pictures"
 "Dokumente" "Documents" "Schreibtisch"
-"Desktop" "backups" "projects" "Zotero" -}}
+"Desktop" "backups" "projects" "Zotero"
+".local/share/gopass/stores" ".local/chezmoi" ".local/state/syncthing" -}}
 {{- range  $folders }}
 {{- if (joinPath $.chezmoi.homeDir . | lstat) }}
 {{ joinPath $.chezmoi.homeDir . }}

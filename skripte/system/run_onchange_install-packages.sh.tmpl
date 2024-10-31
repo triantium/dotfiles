@@ -1,20 +1,36 @@
 {{ if eq .chezmoi.osRelease.idLike "arch" -}}
 #!/bin/sh
 sudo pacman -Syu \
-starship pass gopass vim neovim ansible xclip \
-restic chezmoi \
-inkscape timew task httpie jq
+bat fd exa starship \
+pass gopass xclip \
+vim neovim \
+ansible \
+restic chezmoi pre-commit \
+inkscape timew task httpie jq \
+obs-studio v4l2loopback-dkms \
+mutt
+
+
+#if [[ ! -c 'paru' ]] ; then
+#(
+#  sudo pacman -S --needed base-devel
+#  git clone https://aur.archlinux.org/paru.git
+#  cd paru
+#  makepkg -si
+#)
+#fi
+
+{{ if lookPath "mani" }}
+echo 'Mani bereits installiert'
+{{else }}
+paru -Syu mani
+{{ end -}}
 
 if [[ ! -d '/opt/Citrix/' ]] ; then
-(
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-)
-
 paru -Syu icaclient
 fi
+{{ else if eq .chezmoi.os "darwin" -}}
+echo '{{.chezmoi.os}} is not implemented'
 {{ else }}
 #!/bin/sh
 echo '{{.chezmoi.osRelease.idlike}} is not implemented'

@@ -1,3 +1,10 @@
 #!/bin/bash
 
+if [[ -z "${RESTIC_REPOSITORY}" ]] ; then
+  echo 'set "export RESTIC_REPOSITORY" before use'
+fi
+
+restore_folder='{{ .chezmoi.homeDir }}/restore'
+mkdir -p "${restore_folder}"
+
 restic restore --host "{{ .chezmoi.hostname }}" --target "{{ .chezmoi.homeDir }}"

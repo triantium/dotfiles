@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# mani.yaml hash: {{ include "dot_local/private_share/private_gopass/private_stores/mani.yaml" | sha256sum }}
+
+(
+  cd '{{ .chezmoi.homeDir }}/.local/share/gopass/stores/' || (echo 'Folder for gopass not available' && exit 1);
+  mani sync
+)
