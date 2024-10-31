@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+#!/bin/sh
+sudo pacman -Syu \
+starship pass gopass vim neovim ansible xclip \
+restic chezmoi \
+inkscape timew task httpie jq
+
+if [[ ! -d '/opt/Citrix/' ]] ; then
+(
+sudo pacman -S --needed base-devel
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+)
+
+paru -Syu icaclient
+fi
+{{ else }}
+#!/bin/sh
+echo '{{.chezmoi.osRelease.idlike}} is not implemented'
+{{ end -}}
