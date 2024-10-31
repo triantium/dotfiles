@@ -1,27 +1,30 @@
 {{ if eq .chezmoi.osRelease.idLike "arch" -}}
 #!/bin/sh
 sudo pacman -Syu \
-bat fd exa starship \
+bat fd exa starship kitty \
 pass gopass xclip \
 vim neovim \
 ansible \
 restic chezmoi pre-commit \
-inkscape timew task httpie jq \
+inkscape krita \
+timew task httpie jq \
 obs-studio v4l2loopback-dkms \
 mutt
 
 
-#if [[ ! -c 'paru' ]] ; then
-#(
-#  sudo pacman -S --needed base-devel
-#  git clone https://aur.archlinux.org/paru.git
-#  cd paru
-#  makepkg -si
-#)
-#fi
+{{ if lookPath "paru" }}
+echo 'paru bereits installiert'
+{{else}}
+(
+  cd '{{.chezmoi.homedir}}'
+  sudo pacman -S --needed base-devel
+  git clone https://aur.archlinux.org/paru.git
+  cd paru
+  makepkg -si
+)
 
 {{ if lookPath "mani" }}
-echo 'Mani bereits installiert'
+echo 'mani bereits installiert'
 {{else }}
 paru -Syu mani
 {{ end -}}
