@@ -22,6 +22,7 @@ echo 'paru bereits installiert'
   cd paru
   makepkg -si
 )
+{{end}}
 
 {{ if lookPath "mani" }}
 echo 'mani bereits installiert'
@@ -34,15 +35,22 @@ paru -Syu icaclient
 fi
 
 {{ else if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
-
+#!/bin/sh
 sudo apt install neovim vim \
 kitty zsh wl-clipboard \
 fd-find eza \
 restic ansible \
 pre-commit mutt
-{{ if lookPath "mani" }}{{else}}
+
+{{ if lookPath "starship" }}{{else}}
 curl -sS https://starship.rs/install.sh | sh
-{{fi}}
+{{end}}
+
+{{ if lookPath "mani" }}
+echo 'mani bereits installiert'
+{{ else }}
+curl -sfL https://raw.githubusercontent.com/alajmo/mani/main/install.sh | sh
+{{ end -}}
 
 {{ else if eq .chezmoi.os "darwin" -}}
 echo '{{.chezmoi.os}} is not implemented'

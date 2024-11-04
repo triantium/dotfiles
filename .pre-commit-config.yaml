@@ -18,3 +18,13 @@ repos:
       rev: v0.10.0
       hooks:
       -   id: shellcheck
+  - repo: local
+    hooks:
+    -   id: chezmoi-render-templates
+        name: render
+        language: system
+        verbose: false
+        entry: bash -c  'cat "$@" |  chezmoi execute-template > /dev/null' -- # just the error codes and the error
+        exclude: ^\.chezmoi.*\.tmpl$
+        #entry: chezmoi execute-template
+        files: ^.*\.tmpl$
