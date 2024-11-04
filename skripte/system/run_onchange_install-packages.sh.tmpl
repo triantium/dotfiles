@@ -25,16 +25,27 @@ echo 'paru bereits installiert'
 
 {{ if lookPath "mani" }}
 echo 'mani bereits installiert'
-{{else }}
+{{ else }}
 paru -Syu mani
 {{ end -}}
 
 if [[ ! -d '/opt/Citrix/' ]] ; then
 paru -Syu icaclient
 fi
+
+{{ else if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
+
+sudo apt install neovim vim \
+kitty zsh wl-clipboard \
+fd-find eza \
+restic ansible \
+pre-commit
+{{ if lookPath "mani" }}{{else}}
+curl -sS https://starship.rs/install.sh | sh
+{{fi}}
+
 {{ else if eq .chezmoi.os "darwin" -}}
 echo '{{.chezmoi.os}} is not implemented'
 {{ else }}
-#!/bin/sh
-echo '{{.chezmoi.osRelease.idlike}} is not implemented'
+echo '{{.chezmoi.osRelease.idLike}} is not implemented'
 {{ end -}}
