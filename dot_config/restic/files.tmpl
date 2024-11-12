@@ -3,7 +3,7 @@
 ".task" ".taskrc" ".timewarrior" "Bilder" "Pictures"
 "Dokumente" "Documents" "Schreibtisch"
 "Desktop" "backups" "projects" "Zotero"
-".local/share/gopass/stores" ".local/chezmoi" ".local/state/syncthing" -}}
+".local/share/gopass/stores" ".local/chezmoi" ".local/state/syncthing" ".config/syncthing" -}}
 {{- range  $folders }}
 {{- if (joinPath $.chezmoi.homeDir . | lstat) }}
 {{ joinPath $.chezmoi.homeDir . }}
