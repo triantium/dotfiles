@@ -1,7 +1,11 @@
 {{- $email := promptString "email" -}}
 {{- $fullname := promptString "fullname" -}}
-{{- $keyboardLayout := promptString "kbdLayout us|de" -}}
-{{- $keyboardVariant := promptString "kbdVersion altgr-intl|basic" -}}
+
+{{- $layouts := list "us" "de" -}}
+{{- $keyboardLayout := promptChoice "Keyboard Layout?" $layouts -}}
+
+{{- $variants := list "altgr-intl" "basic" -}}
+{{- $keyboardVariant := promptChoice "Keyboard Variant?" $variants -}}
 
 [diff]
     format = "git"
