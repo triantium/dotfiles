@@ -18,6 +18,20 @@
     url = "https://github.com/asdf-vm/asdf.git"
     refreshPeriod = "168h"
 
+[".talon/user/community"]
+type = "git-repo"
+url = "https://github.com/talonhub/community.git"
+refreshPeriod = "168h"
+
+[".talon/user/cursorless-talon"]
+type = "git-repo"
+url = "https://github.com/cursorless-dev/cursorless-talon.git"
+refreshPeriod = "168h"
+
+[".talon/user/rango-talon"]
+type = "git-repo"
+url = "https://github.com/david-tejada/rango-talon.git"
+refreshPeriod = "168h"
 
 #[".task/hooks/on-add.task2habitica"]
 #type = "file"
