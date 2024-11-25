@@ -63,6 +63,8 @@ alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) doc
 # alias docker="nerdctl"
 {{end}}
 
+alias vim="nvim"
+
 if [ -z "$EDITOR" ] ; then
     alias vim="$EDITOR"
 fi
