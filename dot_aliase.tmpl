@@ -65,6 +65,15 @@ alias dockerKill='docker stop $(docker ps -aq) && docker rm $(docker ps -aq) doc
 
 alias vim="nvim"
 
+
+{{ if lookPath "nvim" }}
+  export EDITOR=nvim
+{{ else if lookPath "vim" }}
+  export EDITOR=vim
+{{ else if lookPath "vi" }}
+  export EDITOR=vi
+{{end}}
+
 if [ -z "$EDITOR" ] ; then
     alias vim="$EDITOR"
 fi

@@ -56,13 +56,14 @@ if [ -d "{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts"}}"
     PATH="{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts:$PATH"}}"
 fi
 
-if [[ -c 'nvim' ]] ; then
+{{ if lookPath "nvim" }}
   export EDITOR=nvim
-elif [[ -c 'vim' ]] ; then
+{{ else if lookPath "vim" }}
   export EDITOR=vim
-else
+{{ else if lookPath "vi" }}
   export EDITOR=vi
-fi
+{{end}}
+
 
 {{ if lookPath "pass" }}
 export RESTIC_REPOSITORY="{{ ( passFields "backup/restic").repository }}"
