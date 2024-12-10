@@ -1,0 +1,3 @@
+host = "https://kimai.geekinbusiness.de"
+username = "{{ if lookPath "pass" }}{{ ( passFields "accounts/kimai.geekinbusiness.de").login }}{{end}}"
+password = "{{ if lookPath "pass" }}{{ pass "accounts/kimai.geekinbusiness.de" }}{{end}}"
