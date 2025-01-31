@@ -9,7 +9,7 @@ restic chezmoi pre-commit \
 inkscape krita \
 timew task httpie jq \
 obs-studio v4l2loopback-dkms \
-mutt
+mutt portmidi
 
 
 {{ if lookPath "paru" }}
@@ -30,6 +30,12 @@ echo 'mani bereits installiert'
 paru -Syu mani
 {{ end -}}
 
+{{ if lookPath "pamidicontrol" }}
+echo 'pamidicontrol bereits installiert'
+{{ else }}
+go install github.com/solarnz/pamidicontrol@latest
+{{ end -}}
+
 if [[ ! -d '/opt/Citrix/' ]] ; then
 paru -Syu icaclient
 fi
@@ -40,7 +46,7 @@ sudo apt install neovim vim \
 kitty zsh wl-clipboard \
 fd-find eza \
 restic ansible \
-pre-commit mutt
+pre-commit mutt libportmidi-dev
 
 {{ if lookPath "starship" }}{{else}}
 curl -sS https://starship.rs/install.sh | sh
@@ -51,6 +57,15 @@ echo 'mani bereits installiert'
 {{ else }}
 curl -sfL https://raw.githubusercontent.com/alajmo/mani/main/install.sh | sh
 {{ end -}}
+
+{{ if lookPath "midi2key-ng" }}
+echo 'midi2key-ng bereits installiert'
+{{ else }}
+go install -v github.com/m10x/midi2key-ng@latest
+{{ end -}}
+
+
+
 
 {{ else if eq .chezmoi.os "darwin" -}}
 echo '{{.chezmoi.os}} is not implemented'
