@@ -7,3 +7,7 @@ echo 'Setting up Backup Timer'
 
 systemctl --user daemon-reload
 systemctl --user enable --now backup.timer
+
+echo 'Setting up Worship Timer'
+
+systemctl --user enable --now worship.timer

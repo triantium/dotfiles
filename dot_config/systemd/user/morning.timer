@@ -1,0 +1,10 @@
+[Unit]
+Description=Good_Morning
+
+[Timer]
+OnCalendar=OnCalendar=*-*-* 8:01:00
+#Persistent=true
+RandomizedDelaySec=360
+
+[Install]
+WantedBy=timers.target
