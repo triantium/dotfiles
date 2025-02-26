@@ -9,6 +9,17 @@
 	editor={{ if lookPath "nvim" }}nvim{{ else if lookPath "vim" }}vim{{ else if lookPath "vi" }}vi{{ end }}
 [commit]
         gpgSign = false
+
+[column]
+    ui = auto
+
+[branch]
+    sort = -committerdate
+
+[help]
+  autocorrect = 20
+
+
 [tag]
 	forceSignAnnotated = false
 {{ if lookPath "gpg" }}
@@ -24,6 +35,9 @@
   pushnotes = push origin refs/notes/*:refs/notes/*
   project-summary = !which onefetch && onefetch
   appraise = !{{ .home }}/go/bin/git-appraise
+
+[rerere]
+    enabled = true
 
 [cola]
   spellcheck = false
