@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.idLike "arch" -}}
+{{ if or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.idLike "arch") -}}
 #!/bin/sh
 sudo pacman -Syu \
 bat fd exa starship kitty \
@@ -40,7 +40,12 @@ if [[ ! -d '/opt/Citrix/' ]] ; then
 paru -Syu icaclient
 fi
 
-{{ else if eq .chezmoi.osRelease.idLike "ubuntu debian" -}}
+{{ else if or
+    (contains .chezmoi.osRelease.id "ubuntu")
+    (contains .chezmoi.osRelease.id "debian")
+    (eq .chezmoi.osRelease.idLike "ubuntu")
+    (eq .chezmoi.osRelease.idLike "debian") -}}
+
 #!/bin/sh
 sudo apt install neovim vim \
 kitty zsh wl-clipboard \
