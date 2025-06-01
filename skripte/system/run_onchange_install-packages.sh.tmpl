@@ -1,6 +1,7 @@
 {{ if or
-    (eq .chezmoi.osRelease.id "arch")
-    (and .chezmoi.osRelease.idLike (eq .chezmoi.osRelease.idLike "arch")) -}}
+    (contains .chezmoi.osRelease.id "arch")
+    (and .chezmoi.osRelease.idLike (contains .chezmoi.osRelease.idLike "arch")) -}}
+
 #!/bin/sh
 sudo pacman -Syu \
 bat fd exa starship kitty \
