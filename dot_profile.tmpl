@@ -82,10 +82,11 @@ if [ -d "{{joinPath .chezmoi.homeDir ".poetry/bin:$PATH"}}" ] ; then
 fi
 
 
-monitors=$(/opt/Citrix/ICAClient/wfica -span h)
+if [ -f '/opt/Citrix/ICAClient/wfica' ] ; then
+  monitors=$(/opt/Citrix/ICAClient/wfica -span h)
+  #export WFICA_OPTS="-span a"
+fi
 
-
-#export WFICA_OPTS="-span a"
 
 # Setting for breezy Vulkan
 
