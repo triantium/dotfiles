@@ -1,4 +1,6 @@
-{{ if or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.idLike "arch") -}}
+{{ if or
+(eq .chezmoi.osRelease.id "arch")
+(eq .chezmoi.osRelease.idLike "arch") -}}
 #!/bin/sh
 sudo pacman -Syu \
 bat fd exa starship kitty \
@@ -43,13 +45,14 @@ fi
 {{ else if or
     (contains .chezmoi.osRelease.id "ubuntu")
     (contains .chezmoi.osRelease.id "debian")
-    (eq .chezmoi.osRelease.idLike "ubuntu")
-    (eq .chezmoi.osRelease.idLike "debian") -}}
+    (and .chezmoi.osRelease.idLike (contains .chezmoi.osRelease.idLike "ubuntu"))
+    (and .chezmoi.osRelease.idLike (contains .chezmoi.osRelease.idLike "debian")) -}}
+
 
 #!/bin/sh
 sudo apt install neovim vim \
 kitty zsh wl-clipboard \
-fd-find eza \
+fd-find exa \
 restic ansible \
 pre-commit mutt libportmidi-dev
 
@@ -63,12 +66,13 @@ echo 'mani bereits installiert'
 curl -sfL https://raw.githubusercontent.com/alajmo/mani/main/install.sh | sh
 {{ end -}}
 
+{{ if lookPath "go" }}
 {{ if lookPath "midi2key-ng" }}
 echo 'midi2key-ng bereits installiert'
 {{ else }}
 go install -v github.com/m10x/midi2key-ng@latest
 {{ end -}}
-
+{{ end -}}
 
 
 
