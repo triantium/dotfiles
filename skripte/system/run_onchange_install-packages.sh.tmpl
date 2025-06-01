@@ -1,6 +1,6 @@
 {{ if or
     (contains .chezmoi.osRelease.id "arch")
-    (and .chezmoi.osRelease.idLike (contains .chezmoi.osRelease.idLike "arch")) -}}
+    (and (hasKey .chezmoi.osRelease "idLike") (contains .chezmoi.osRelease.idLike "arch")) -}}
 
 #!/bin/sh
 sudo pacman -Syu \
@@ -46,8 +46,8 @@ fi
 {{ else if or
     (contains .chezmoi.osRelease.id "ubuntu")
     (contains .chezmoi.osRelease.id "debian")
-    (and .chezmoi.osRelease.idLike (contains .chezmoi.osRelease.idLike "ubuntu"))
-    (and .chezmoi.osRelease.idLike (contains .chezmoi.osRelease.idLike "debian")) -}}
+    (and (hasKey .chezmoi.osRelease "idLike") (contains .chezmoi.osRelease.idLike "ubuntu"))
+    (and (hasKey .chezmoi.osRelease "idLike") (contains .chezmoi.osRelease.idLike "debian")) -}}
 
 
 #!/bin/sh
