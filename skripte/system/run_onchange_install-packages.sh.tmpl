@@ -53,28 +53,28 @@ fi
 #!/bin/sh
 
 if [ $XDG_SESSION_TYPE = "tty" ] ; then
-    sudo apt install vim \
+    sudo apt -y install vim \
         kitty zsh \
-        fd-find eza \
+        fd-find \
         restic \
         pre-commit mutt
 else
-    sudo apt install vim \
+    sudo apt -y install vim \
     kitty zsh wl-clipboard \
-    fd-find exa \
+    fd-find \
     restic ansible \
     pre-commit mutt libportmidi-dev
 fi
 
 
 {{ if lookPath "starship" }}{{else}}
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 {{end}}
 
 {{ if lookPath "mani" }}
 echo 'mani bereits installiert'
 {{ else }}
-curl -sfL https://raw.githubusercontent.com/alajmo/mani/main/install.sh | sh
+curl -sfL https://raw.githubusercontent.com/alajmo/mani/main/install.sh | sh -s -- -y
 {{ end -}}
 
 {{ if lookPath "go" }}
