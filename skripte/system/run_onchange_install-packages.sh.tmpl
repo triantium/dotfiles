@@ -6,7 +6,7 @@
 sudo pacman -Syu \
 bat fd exa starship kitty \
 pass gopass xclip \
-vim neovim \
+vim \
 ansible \
 restic chezmoi pre-commit \
 inkscape krita \
@@ -51,13 +51,21 @@ fi
 
 
 #!/bin/sh
-#// TODO check if x11 or wayland is even installed, so we just get server stuff
 
-sudo apt install neovim vim \
-kitty zsh wl-clipboard \
-fd-find exa \
-restic ansible \
-pre-commit mutt libportmidi-dev
+if [ $XDG_SESSION_TYPE = "tty" ] ; then
+    sudo apt install vim \
+        kitty zsh \
+        fd-find exa \
+        restic \
+        pre-commit mutt
+else
+    sudo apt install vim \
+    kitty zsh wl-clipboard \
+    fd-find exa \
+    restic ansible \
+    pre-commit mutt libportmidi-dev
+fi
+
 
 {{ if lookPath "starship" }}{{else}}
 curl -sS https://starship.rs/install.sh | sh
