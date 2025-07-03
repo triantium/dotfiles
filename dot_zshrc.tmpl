@@ -134,11 +134,8 @@ fi
 #
 #eval `{{- .home -}}/.dir_colors/dircolors`
 
-# Kubertnetes alias and functions
-{{ if lookPath "kubectl" }}
-if [[ -c kubectl ]] ; then
+# Kubertnetes alias and function
    . <( kubectl completion zsh ) ;
-fi
 {{end}}
 
 {{ if lookPath "k8sgpt" }}
@@ -196,7 +193,8 @@ fi
 {{end}}
 
 {{ if lookPath "kustomize" }}
-if [[ -c kustomize ]] ; then
+if
+ [[ -c kustomize ]] ; then
   . <(kustomize completion zsh)
 fi
 {{end}}
@@ -224,9 +222,8 @@ pfetch
 {{end}}
 
 {{ if lookPath "direnv" }}
-if [[ -c direnv ]] ; then
   eval "$(direnv hook zsh)"
-fi
+
 {{end}}
 
 {{ if lookPath "zoxide" }}

@@ -1,7 +1,6 @@
 {{ if or
     (contains .chezmoi.osRelease.id "arch")
     (and (hasKey .chezmoi.osRelease "idLike") (contains .chezmoi.osRelease.idLike "arch")) -}}
-
 #!/bin/sh
 sudo pacman -Syu \
 bat fd exa starship kitty \
@@ -88,7 +87,10 @@ go install -v github.com/m10x/midi2key-ng@latest
 
 
 {{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
 echo '{{.chezmoi.os}} is not implemented'
 {{ else }}
+#!/bin/sh
 echo '{{.chezmoi.osRelease.idLike}} is not implemented'
 {{ end -}}
