@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=oneshot
-WorkingDirectory=/root/skripte/
-ExecStart=/root/skripte/fun/worship.sh
+WorkingDirectory=/home/triantium/skripte/
+ExecStart=/home/triantium/skripte/fun/worship.sh
 
 
 [Install]
