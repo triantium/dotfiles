@@ -135,6 +135,7 @@ fi
 #eval `{{- .home -}}/.dir_colors/dircolors`
 
 # Kubertnetes alias and function
+{{ if lookPath "kubectl" }}
    . <( kubectl completion zsh ) ;
 {{end}}
 
