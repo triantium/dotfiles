@@ -150,6 +150,10 @@ fi
     eval "$(starship init zsh)"
 {{end}}
 
+{{ if lookPath "git-bug" }}
+    eval "$(git-bug completion zsh)"
+{{end}}
+
 
 {{ if lookPath "kitty" }}
 if [ command -v kitty &> /dev/null ; then

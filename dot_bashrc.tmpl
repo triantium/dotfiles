@@ -103,6 +103,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+{{ if lookPath "git-bug" }}
+    eval "$(git-bug completion bash)"
+{{end}}
+
 # setup .adfs
 if [ -d "${HOME}/.adfs" ] ; then
 . $HOME/.adfs/adfs.sh
