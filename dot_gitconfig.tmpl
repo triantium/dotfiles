@@ -34,7 +34,6 @@
   weekly = log --author='{{ .email }}' --since '1 week ago' --oneline
   pushnotes = push origin refs/notes/*:refs/notes/*
   project-summary = !which onefetch && onefetch
-  appraise = !{{ .home }}/go/bin/git-appraise
 
 [rerere]
     enabled = true
@@ -48,6 +47,12 @@
 
 [init]
   templateDir = {{ .chezmoi.homeDir }}/.config/git/template
+
+[http]
+  lowSpeedLimit = 1000
+  lowSpeedTime = 60
+  postBuffer = 524288000
+
 
 {{if (eq .chezmoi.hostname "valkyrie")}}
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
