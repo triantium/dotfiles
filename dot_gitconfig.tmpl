@@ -58,8 +58,8 @@
 textconv = unzip -c -a
 
 [filter "zippey"]
-    smudge = python3 {{ .home }}bin/zippey/zippey.py d
-    clean = python3 {{ .home }}bin/zippey/zippey.py e
+    smudge = python3 {{ .home }}/bin/zippey/zippey.py d
+    clean = python3 {{ .home }}/bin/zippey/zippey.py e
 
 {{if (eq .chezmoi.hostname "valkyrie")}}
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
