@@ -7,6 +7,7 @@
 	quotepath = false
 	excludesfile = {{ .home }}/.gitignore
 	editor={{ if lookPath "nvim" }}nvim{{ else if lookPath "vim" }}vim{{ else if lookPath "vi" }}vi{{ end }}
+	attributesfile = {{ .home }}/.gitattributes
 [commit]
         gpgSign = false
 
@@ -53,6 +54,12 @@
   lowSpeedTime = 60
   postBuffer = 524288000
 
+[diff "zip"]
+textconv = unzip -c -a
+
+[filter "zippey"]
+    smudge = python3 {{ .home }}bin/zippey/zippey.py d
+    clean = python3 {{ .home }}bin/zippey/zippey.py e
 
 {{if (eq .chezmoi.hostname "valkyrie")}}
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]

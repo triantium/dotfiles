@@ -33,6 +33,14 @@ type = "git-repo"
 url = "https://github.com/david-tejada/rango-talon.git"
 refreshPeriod = "168h"
 
+
+
+["bin/zippey"]
+type = "git-repo"
+url = "https://bitbucket.org/sippey/zippey.git"
+refreshPeriod = "168h"
+
+
 #[".talon/user/talon_german"]
 #type = "git-repo"
 #url = "https://github.com/2d6/talon_german.git"
