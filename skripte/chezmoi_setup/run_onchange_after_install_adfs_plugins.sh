@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # asdf-setup.service hash: {{ include "skripte/chezmoi_setup/run_onchange_after_install_adfs_plugins.sh.tmpl" | sha256sum }}
+# .tool-versions hash: {{ include "dot_tool-versions" | sha256sum }}
 
 if [ -x "$(command -v "asdf")" ] ; then
   asdf plugin add tilt
