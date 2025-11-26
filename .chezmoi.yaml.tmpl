@@ -1,0 +1,48 @@
+{{- $firstname := promptString "firstname" -}}
+{{- $familyname := promptString "familyname" -}}
+{{- $fullname := $firstname | printf "%s %s" $familyname -}}
+
+{{- $email := promptString "email" -}}
+
+{{- $fwemail := promptString "fwemail" -}}
+{{- $workemail := promptString "workemail" -}}
+
+{{- $fwtitle := promptString "fwtitle" -}}
+{{- $worktitle := promptString "worktitle" -}}
+
+{{- $fwcompany := promptString "fwcompany" -}}
+{{- $workcompany := promptString "workcompany" -}}
+
+{{- $fwaddress := promptString "fwaddress" -}}
+{{- $workaddress := promptString "workaddress" -}}
+
+{{- $layouts := list "us" "de" -}}
+{{- $keyboardLayout := promptChoice "Keyboard Layout?" $layouts -}}
+
+{{- $variants := list "altgr-intl" "basic" -}}
+{{- $keyboardVariant := promptChoice "Keyboard Variant?" $variants -}}
+
+diff:
+  format: git
+
+sourceVCS:
+  autoCommit: true
+  autoPush: true
+
+data:
+  home: {{ .chezmoi.homeDir | quote }}
+  email: {{ $email | quote }}
+  fullname: {{ $fullname | quote }}
+  keyboardLayout: {{ $keyboardLayout | quote }}
+  keyboardVariant: {{ $keyboardVariant | quote }}
+  fw:
+    jobtitle: {{ $fwtitle | quote }}
+    email: {{ $fwemail | quote }}
+    company: {{ $fwcompany | quote }}
+    address:  {{ $fwaddress | quote }}
+  work:
+    jobtitle: {{ $worktitle | quote }}
+    email: {{ $workemail | quote }}
+    company: {{ $workcompany | quote }}
+    address: {{ $workaddress | quote }}
+
