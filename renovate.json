@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "automerge": true,
   "managerFilePatterns": [
     "/(^|/)\\.tool-versions$/",
     "/(^|/)dot_tool-versions$/"

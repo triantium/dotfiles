@@ -56,6 +56,12 @@ if [ -d "{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts"}}"
     PATH="{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts:$PATH"}}"
 fi
 
+{{ if lookPath "asdf" }}
+if [[ -c asdf ]] ; then
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+fi
+{{end}}
+
 {{ if lookPath "nvim" }}
   export EDITOR=nvim
 {{ else if lookPath "vim" }}

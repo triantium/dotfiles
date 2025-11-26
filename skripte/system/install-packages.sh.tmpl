@@ -32,6 +32,12 @@ echo 'mani bereits installiert'
 paru -Syu mani
 {{ end -}}
 
+{{ if lookPath "asdf" }}
+echo 'asdf bereits installiert'
+{{ else }}
+paru -Syu asdf-vm
+{{ end -}}
+
 {{ if lookPath "pamidicontrol" }}
 echo 'pamidicontrol bereits installiert'
 {{ else }}
@@ -74,6 +80,12 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 echo 'mani bereits installiert'
 {{ else }}
 curl -sfL https://raw.githubusercontent.com/alajmo/mani/main/install.sh | sh -s -- -y
+{{ end -}}
+
+{{ if lookPath "asdf" }}
+echo 'asdf bereits installiert'
+{{ else }}
+curl -sfL https://github.com/asdf-vm/asdf/releases/download/v0.18.0/asdf-v0.18.0-linux-amd64.tar.gz | gunzip | sudo tar -xvf - -C /usr/local/bin
 {{ end -}}
 
 {{ if lookPath "go" }}

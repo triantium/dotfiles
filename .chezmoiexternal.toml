@@ -13,11 +13,6 @@
 #    url = "https://github.com/tilt-dev/tiltfile.tmbundle.git"
 #    refreshPeriod = "168h"
 
-[".asdf"]
-    type = "git-repo"
-    url = "https://github.com/asdf-vm/asdf.git"
-    refreshPeriod = "168h"
-
 [".talon/user/community"]
 type = "git-repo"
 url = "https://github.com/talonhub/community.git"
@@ -32,7 +27,6 @@ refreshPeriod = "168h"
 type = "git-repo"
 url = "https://github.com/david-tejada/rango-talon.git"
 refreshPeriod = "168h"
-
 
 
 ["bin/zippey"]
