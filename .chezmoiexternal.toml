@@ -13,6 +13,20 @@
 #    url = "https://github.com/tilt-dev/tiltfile.tmbundle.git"
 #    refreshPeriod = "168h"
 
+[".local/bin/talon/"]
+type="archive"
+url="https://talonvoice.com/dl/latest/talon-linux.tar.xz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
+[".local/bin/talon/logo.png"]
+type="file"
+url="https://avatars.githubusercontent.com/u/32918202?s=200&v=4"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
+
 [".talon/user/community"]
 type = "git-repo"
 url = "https://github.com/talonhub/community.git"
