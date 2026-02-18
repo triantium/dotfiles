@@ -24,36 +24,38 @@ fi
 {{ end }}
 
 # Setting PATH according to given directories, if present
+if [ -d "{{joinPath .chezmoi.homeDir ".local/bin""}}" ] ; then
+    export PATH="{{joinPath .chezmoi.homeDir ".local/bin:$PATH"}}"
+fi
 
 if [ -d "{{joinPath .chezmoi.homeDir "go/bin"}}" ] ; then
-    PATH="{{joinPath .chezmoi.homeDir "go/bin:$PATH"}}"
+    export PATH="{{joinPath .chezmoi.homeDir "go/bin:$PATH"}}"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "{{joinPath .chezmoi.homeDir "bin"}}" ] ; then
-    PATH="{{joinPath .chezmoi.homeDir "bin:$PATH"}}"
+    export PATH="{{joinPath .chezmoi.homeDir "bin:$PATH"}}"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "{{joinPath .chezmoi.homeDir ".local/bin"}}" ] ; then
-    PATH="{{joinPath .chezmoi.homeDir ".local/bin:$PATH"}}"
+    export PATH="{{joinPath .chezmoi.homeDir ".local/bin:$PATH"}}"
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "{{joinPath .chezmoi.homeDir ".cargo/bin"}}" ] ; then
-    PATH="{{joinPath .chezmoi.homeDir ".cargo/bin:$PATH"}}"
+    export PATH="{{joinPath .chezmoi.homeDir ".cargo/bin:$PATH"}}"
 fi
 
 # $.local/share/flatpak/exports/bin
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "{{joinPath .chezmoi.homeDir ".local/share/flatpak/exports/bin"}}" ] ; then
-    PATH="{{joinPath .chezmoi.homeDir ".local/share/flatpak/exports/bin:$PATH"}}"
+    export PATH="{{joinPath .chezmoi.homeDir ".local/share/flatpak/exports/bin:$PATH"}}"
 fi
 
 # set PATH, if Jetbrains Toolbox exports the fracking binarys
 if [ -d "{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts"}}" ] ; then
-    PATH="{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts:$PATH"}}"
+    export PATH="{{joinPath .chezmoi.homeDir ".local/share/JetBrains/Toolbox/scripts:$PATH"}}"
 fi
 
 {{ if lookPath "asdf" }}
