@@ -24,7 +24,7 @@ fi
 {{ end }}
 
 # Setting PATH according to given directories, if present
-if [ -d "{{joinPath .chezmoi.homeDir ".local/bin""}}" ] ; then
+if [ -d "{{joinPath .chezmoi.homeDir ".local/bin"}}" ] ; then
     export PATH="{{joinPath .chezmoi.homeDir ".local/bin:$PATH"}}"
 fi
 
