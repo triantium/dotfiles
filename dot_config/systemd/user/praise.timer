@@ -1,9 +1,0 @@
-[Unit]
-Description=Praise Mistress
-
-[Timer]
-OnCalendar=hourly
-Persistent=false
-
-[Install]
-WantedBy=timers.target
