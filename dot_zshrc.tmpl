@@ -252,3 +252,11 @@ fi
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+{{ if lookPath (joinPath .chezmoi.homeDir ".opencode/bin/opencode") }}
+# opencode
+if [[ -d '{{joinPath .chezmoi.homeDir ".opencode/bin"}}' ]] ; then
+export PATH={{joinPath .chezmoi.homeDir ".opencode/bin"}}:$PATH
+fi
+{{end}}
