@@ -61,6 +61,12 @@ textconv = unzip -c -a
     smudge = python3 {{ .home }}/bin/zippey/zippey.py d
     clean = python3 {{ .home }}/bin/zippey/zippey.py e
 
+
+{{ if lookPath "pass" }}
+[git-town]
+  github-token = {{ pass "token/github.com/git-town" }}
+{{end}}
+
 {{if (eq .chezmoi.hostname "valkyrie")}}
 [filesystem "Azul Systems, Inc.|11.0.8|/dev/mapper/data-root"]
   timestampResolution = 20000 nanoseconds
