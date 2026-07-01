@@ -6,6 +6,7 @@ export RESTIC_PASSWORD_FILE='{{joinPath .chezmoi.homeDir ".config/restic/passwor
 # export RESTIC_PASSWORD_COMMAND="pass backup/restic | head -n 1 | tr -d '\n'"
 unset RESTIC_PASSWORD_COMMAND
 export RESTIC_FILES="{{joinPath .chezmoi.homeDir ".config/restic/files"}}"
+export RESTIC_EXCLUDE_FILES="{{joinPath .chezmoi.homeDir ".config/restic/exclude"}}"
 
 backup_file=$(mktemp)
 
@@ -16,7 +17,10 @@ function finish {
 
 trap finish EXIT
 
-restic backup --files-from="${RESTIC_FILES}" |& tee "${backup_file}"
+restic backup --files-from="${RESTIC_FILES}" \
+--exclude-file="${RESTIC_EXCLUDE_FILES}" \
+ --exclude-caches \
+|& tee "${backup_file}"
 
 EXIT_CODE=$?
 
