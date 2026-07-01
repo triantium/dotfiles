@@ -1,5 +1,5 @@
 {{- $folders := list  ".config/discord/" ".config/chromium/"
-".config/Jetbrains/" ".config/obsidian" ".config/Insync"
+".config/JetBrains/" ".config/obsidian" ".config/Insync"
 ".config/EmuDeck" ".config/eDEX-UI"
 ".config/Code" ".config/anytype" ".config/teams-for-linux"
  -}}
@@ -7,5 +7,6 @@
 {{- if (joinPath $.chezmoi.homeDir . | lstat) }}
 {{ joinPath $.chezmoi.homeDir . }}
 {{- end -}}
-{{- end -}}
+{{ end }}
+{{ joinPath $.chezmoi.homeDir "projects/**/target" }}
 .dtrash
