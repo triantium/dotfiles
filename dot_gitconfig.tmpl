@@ -79,8 +79,8 @@ textconv = unzip -c -a
 {{if (eq .chezmoi.hostname "valkyrie")}}
 {{end}}
 
-[include]
-  path = {{.chezmoi.homeDir}}/.config/git/secrets-patterns
+#[include]
+#  path = {{.chezmoi.homeDir}}/.config/git/secrets-patterns
 
-[secrets]
-  allowed = changeme
+#[secrets]
+#  allowed = changeme

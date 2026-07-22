@@ -1,9 +1,15 @@
-
-# dconf.ini hash: {{ include "dot_config/git/template/hooks/executable_post-commit" | sha256sum }}
+#!/usr/bin/env bash
 # dconf.ini hash: {{ include "dot_config/git/template/hooks/executable_pre-commit" | sha256sum }}
 
 secret_file="${HOME}/.config/git/secrets-patterns"
 TEMP_FILE=$(mktemp)
+git_version=$(git version | awk '{print $3}')
+
+if printf '%s\n%s\n' '2.45.0' "$git_version" | sort -V -C; then
+    git_config_append=(git config set --append --file "$TEMP_FILE")
+else
+    git_config_append=(git config --add --file "$TEMP_FILE")
+fi
 
 echo "Generating Git Secrets File $TEMP_FILE"
 
@@ -19,7 +25,7 @@ function generateFromPass() {
                 # Check if password is not empty and doesn't start with -----
                 if [ -n "$password" ] && [[ "$password" != -----* ]] && [[ "$password" != apiVersion* ]]; then
                     # Add a generic pattern for any entry
-                    git config set --append -f "$TEMP_FILE" 'secrets.patterns' "$password"
+                    "${git_config_append[@]}" 'secrets.patterns' "'$password'"
                 fi
             fi
         done
