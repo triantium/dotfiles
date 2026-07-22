@@ -78,3 +78,9 @@ textconv = unzip -c -a
 	minRacyThreshold = 6844 microseconds
 {{if (eq .chezmoi.hostname "valkyrie")}}
 {{end}}
+
+[include]
+  path = {{.chezmoi.homeDir}}/.config/git/secrets-patterns
+
+[secrets]
+  allowed = changeme
