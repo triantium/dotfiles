@@ -6,6 +6,7 @@
 if [ -x "$(command -v "asdf")" ] ; then
   asdf plugin add tilt
   asdf plugin add mvnd
+  asdf plugin add kustomize https://github.com/Banno/asdf-kustomize.git
   asdf install
 else
   echo 'asdf not installed'
