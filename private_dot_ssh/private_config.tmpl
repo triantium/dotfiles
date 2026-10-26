@@ -3,6 +3,12 @@ AddKeysToAgent yes
 #ForwardX11 yes
 Host git.ionicjs.com
     IdentityFile {{ .home -}}/.ssh/id_rsa
+Host netcup-0
+  HostName v2202210185501204536.quicksrv.de
+  Port 22
+  LocalForward 10389 localhost:389
+  LocalForward 15432 localhost:5432
+  LocalForward 18888 localhost:8888
 Host geek
   HostName geekinbusiness.de
   Port 22
