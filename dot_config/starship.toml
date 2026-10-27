@@ -9,4 +9,6 @@ style = "bold red"
 command = "git town status --pending"
 format = "[ $output ]($style)"
 style = "bg:yellow fg:black"
+ignore_timeout = true
 when = "test -n \"$(git town status --pending)\" "
+# command -v git-town >/dev/null 2>&1 || git town --version >/dev/null 2>&1
