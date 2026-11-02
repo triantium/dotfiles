@@ -1,0 +1,11 @@
+[Unit]
+Description=Timewarrior Sync
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/.local/share/timewarrior
+ExecStart=%h/.local/share/timewarrior/scripts/git-push.sh
+
+[Install]
+WantedBy=default.target
